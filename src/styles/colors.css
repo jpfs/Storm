@@ -1,0 +1,60 @@
+/* STORM Brand Colors */
+:root {
+  /* Main Colors */
+  --storm-black: #000000;
+  --storm-white: #ffffff;
+  --storm-yellow: #ffd600;
+
+  /* Secondary Colors */
+  --storm-red: #77040f;
+
+  /* Neutral Shades */
+  --storm-gray-light: #f5f5f5;
+  --storm-gray-medium: #cccccc;
+  --storm-gray-dark: #333333;
+
+  /* Transparent Variations */
+  --storm-black-10: rgba(0, 0, 0, 0.1);
+  --storm-black-20: rgba(0, 0, 0, 0.2);
+  --storm-black-50: rgba(0, 0, 0, 0.5);
+  --storm-white-10: rgba(255, 255, 255, 0.1);
+  --storm-white-20: rgba(255, 255, 255, 0.2);
+  --storm-yellow-10: rgba(255, 214, 0, 0.1);
+}
+
+/* Utility Classes */
+.bg-storm-black {
+  background-color: var(--storm-black);
+}
+.bg-storm-white {
+  background-color: var(--storm-white);
+}
+.bg-storm-yellow {
+  background-color: var(--storm-yellow);
+}
+.bg-storm-red {
+  background-color: var(--storm-red);
+}
+
+.text-storm-black {
+  color: var(--storm-black);
+}
+.text-storm-white {
+  color: var(--storm-white);
+}
+.text-storm-yellow {
+  color: var(--storm-yellow);
+}
+.text-storm-red {
+  color: var(--storm-red);
+}
+
+.border-storm-black {
+  border-color: var(--storm-black);
+}
+.border-storm-white {
+  border-color: var(--storm-white);
+}
+.border-storm-yellow {
+  border-color: var(--storm-yellow);
+}
