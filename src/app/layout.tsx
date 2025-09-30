@@ -4,7 +4,7 @@ import Header from "@/components/Header/Header";
 
 export const metadata: Metadata = {
   title: "STORM - From Sea to Street We Ride as One",
-  description: "A marca que une todos os board sports numa comunidade global",
+  description: "A marca que une todos os board sports numa comunidade.",
 };
 
 export default function RootLayout({

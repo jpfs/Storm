@@ -28,23 +28,11 @@ const Header = () => {
       >
         {isMenuOpen ? (
           // X Icon quando menu está aberto
-          <svg
-            width="28"
-            height="28"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
+          <Image src="/icons/ui/xlogo.png" alt="Menu" width={28} height={28} />
         ) : (
           // Menu hamburger quando está fechado
           <Image
-            src="/icons/ui/menu 3 bar.png"
+            src="/icons/ui/menu_3_bar.png"
             alt="Menu"
             width={28}
             height={28}
@@ -65,32 +53,9 @@ const Header = () => {
         </Link>
       </div>
 
-      {/* Top Right Icons */}
-      <div className="fixed top-8 right-8 z-40 flex items-center gap-6">
-        <Link href="/account" className="hover:opacity-70 transition-opacity">
-          <Image
-            src="/icons/ui/person.png"
-            alt="Account"
-            width={24}
-            height={24}
-          />
-        </Link>
-        <Link href="/cart" className="hover:opacity-70 transition-opacity">
-          <Image src="/icons/ui/cart.png" alt="Cart" width={24} height={24} />
-        </Link>
-        <Link href="/wishlist" className="hover:opacity-70 transition-opacity">
-          <Image
-            src="/icons/ui/hearthn.png"
-            alt="Wishlist"
-            width={24}
-            height={24}
-          />
-        </Link>
-      </div>
-
       {/* Sidebar Menu */}
       <div
-        className={`fixed top-0 left-0 h-full w-72 bg-storm-white border-r border-storm-black transform transition-transform duration-300 ease-in-out z-40 ${
+        className={`fixed top-0 left-0 h-full w-72 bg-storm-yellow transform transition-transform duration-300 ease-in-out z-40 ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
