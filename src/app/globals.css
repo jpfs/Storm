@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
 /* STORM Brand Colors */
+@theme {
+  --color-storm-yellow: #ffd600;
+}
 :root {
   /* Main Colors */
   --storm-black: #000000;

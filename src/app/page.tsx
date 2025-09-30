@@ -42,44 +42,25 @@ export default function HomePage() {
 
         {/* BRAIN STORM COLLECTION - Bottom Left */}
         <div className="absolute bottom-16 left-12">
-          <svg
-            className="w-20 mb-2"
-            viewBox="0 0 80 60"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M 10 10 L 70 50"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              fill="none"
-            />
-          </svg>
+          <Image
+            src="/images/products/home/right_down_arrow.png"
+            alt="STORM Product"
+            fill
+            className="object-cover"
+            priority
+          />
         </div>
 
         {/* ORIGINAL DESIGN - Bottom Right */}
-        <div className="absolute bottom-16 right-12 flex items-end gap-2">
-          <svg
-            className="w-20 mb-2"
-            viewBox="0 0 80 60"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M 70 10 L 10 50"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              fill="none"
-            />
-          </svg>
-          <div className="text-right">
-            <p className="text-base font-poppins tracking-wider leading-tight">
-              ORIGINAL
-            </p>
-            <p className="text-base font-poppins tracking-wider leading-tight">
-              DESIGN
-            </p>
-          </div>
+        <div className="absolute bottom-16 right-12 flex items-end gap-2 w-[120px] h-[120px]">
+          <Image
+            src="/icons/home/right_down_arrow.png"
+            alt="STORM Product"
+            className="w-full h-full hover:opacity-100 transition-opacity object-contain"
+            width={120}
+            height={120}
+            priority
+          />
         </div>
 
         {/* CENTER - Main Product Image */}
@@ -98,7 +79,7 @@ export default function HomePage() {
       <div className="fixed bottom-10 right-10 z-30">
         <Link href="/">
           <Image
-            src="/icons/social/STORMLOGO1-02.png"
+            src="/icons/home/STORM_LOGO1-02.png"
             alt="STORM Logo"
             width={120}
             height={120}

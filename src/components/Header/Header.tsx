@@ -23,12 +23,12 @@ const Header = () => {
       {/* Menu Button - Fixed Top Left */}
       <button
         onClick={toggleMenu}
-        className="fixed top-8 left-8 z-50 p-2 hover:opacity-70 transition-opacity bg-storm-white"
+        className="fixed top-8 left-8 z-50 p-2 hover:opacity-70 transition-opacity"
         aria-label="Toggle menu"
       >
         {isMenuOpen ? (
           // X Icon quando menu está aberto
-          <Image src="/icons/ui/xlogo.png" alt="Menu" width={28} height={28} />
+          <Image src="/icons/ui/xlogo.png" alt="Close" width={28} height={28} />
         ) : (
           // Menu hamburger quando está fechado
           <Image
@@ -41,7 +41,7 @@ const Header = () => {
       </button>
 
       {/* Center Logo */}
-      <div className="fixed top-8 left-1/2 transform -translate-x-1/2 z-40">
+      <div className="fixed top-8 left-1/2 transform -translate-x-1/2 z-50">
         <Link href="/">
           <Image
             src="/icons/ui/front_logo.png"
@@ -55,19 +55,19 @@ const Header = () => {
 
       {/* Sidebar Menu */}
       <div
-        className={`fixed top-0 left-0 h-full w-72 bg-storm-yellow transform transition-transform duration-300 ease-in-out z-40 ${
+        className={`fixed top-30 left-8 h-full w-80 bg-storm-yellow transform transition-transform duration-300 ease-in-out z-40 ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <nav className="flex flex-col p-12 gap-8 mt-24">
+        <nav className="flex flex-col px-16 py-12 gap-8 mt-24">
           {navigationLinks.map((link) => (
             <Link
               key={link.name}
               href={link.path}
-              className={`text-2xl font-poppins tracking-wide transition-colors duration-200 ${
+              className={`text-2xl font-poppins font-medium tracking-wide transition-all duration-200 block ${
                 link.active
-                  ? "text-storm-black hover:text-storm-yellow cursor-pointer"
-                  : "text-gray-300 cursor-not-allowed pointer-events-none line-through"
+                  ? "text-storm-black hover:text-storm-red hover:translate-x-2 cursor-pointer"
+                  : "text-storm-gray-medium cursor-not-allowed pointer-events-none opacity-50"
               }`}
               onClick={() => link.active && setIsMenuOpen(false)}
             >
