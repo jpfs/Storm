@@ -8,9 +8,10 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navigationLinks = [
-    { name: "home", path: "/", active: true },
-    { name: "social", path: "/social", active: false },
-    { name: "ui", path: "/ui", active: false },
+    { name: "PRODUCTS", path: "/products", active: true },
+    { name: "ABOUT US", path: "/about", active: true },
+    { name: "EVENTS", path: "/events", active: false },
+    { name: "CONTACT", path: "/contact", active: true },
   ];
 
   const toggleMenu = () => {
@@ -22,27 +23,50 @@ const Header = () => {
       {/* Menu Button - Fixed Top Left */}
       <button
         onClick={toggleMenu}
-        className="fixed top-6 left-6 z-50 p-2 hover:opacity-70 transition-opacity"
+        className="fixed top-8 left-8 z-50 p-2 hover:opacity-70 transition-opacity bg-storm-white"
         aria-label="Toggle menu"
       >
-        <svg
-          width="32"
-          height="32"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <line x1="3" y1="6" x2="21" y2="6" />
-          <line x1="3" y1="12" x2="21" y2="12" />
-          <line x1="3" y1="18" x2="21" y2="18" />
-        </svg>
+        {isMenuOpen ? (
+          // X Icon quando menu está aberto
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        ) : (
+          // Menu hamburger quando está fechado
+          <Image
+            src="/icons/ui/menu 3 bar.png"
+            alt="Menu"
+            width={28}
+            height={28}
+          />
+        )}
       </button>
 
+      {/* Center Logo */}
+      <div className="fixed top-8 left-1/2 transform -translate-x-1/2 z-40">
+        <Link href="/">
+          <Image
+            src="/icons/ui/front_logo.png"
+            alt="STORM"
+            width={50}
+            height={50}
+            className="hover:opacity-70 transition-opacity"
+          />
+        </Link>
+      </div>
+
       {/* Top Right Icons */}
-      <div className="fixed top-6 right-6 z-40 flex items-center gap-4">
+      <div className="fixed top-8 right-8 z-40 flex items-center gap-6">
         <Link href="/account" className="hover:opacity-70 transition-opacity">
           <Image
             src="/icons/ui/person.png"
@@ -66,19 +90,19 @@ const Header = () => {
 
       {/* Sidebar Menu */}
       <div
-        className={`fixed top-0 left-0 h-full w-64 bg-storm-white border-r border-storm-black transform transition-transform duration-300 ease-in-out z-40 ${
+        className={`fixed top-0 left-0 h-full w-72 bg-storm-white border-r border-storm-black transform transition-transform duration-300 ease-in-out z-40 ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <nav className="flex flex-col p-8 gap-6 mt-20">
+        <nav className="flex flex-col p-12 gap-8 mt-24">
           {navigationLinks.map((link) => (
             <Link
               key={link.name}
               href={link.path}
-              className={`storm-nav text-lg transition-colors duration-200 ${
+              className={`text-2xl font-poppins tracking-wide transition-colors duration-200 ${
                 link.active
                   ? "text-storm-black hover:text-storm-yellow cursor-pointer"
-                  : "text-gray-400 cursor-not-allowed pointer-events-none"
+                  : "text-gray-300 cursor-not-allowed pointer-events-none line-through"
               }`}
               onClick={() => link.active && setIsMenuOpen(false)}
             >
@@ -86,16 +110,6 @@ const Header = () => {
             </Link>
           ))}
         </nav>
-
-        <div className="absolute bottom-8 right-8">
-          <Image
-            src="/icons/xlogo.png"
-            alt="STORM"
-            width={48}
-            height={48}
-            className="opacity-10"
-          />
-        </div>
       </div>
 
       {/* Overlay */}
