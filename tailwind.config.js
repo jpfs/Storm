@@ -1,48 +1,35 @@
-{
-  "name": "storm",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.0",
-    "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
-  }
-  "devDependencies": {
-    "tailwindcss": "^3.3.0",
-    "autoprefixer": "^10.4.14",
-    "postcss": "^8.4.24"
-  }
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
+  theme: {
+    extend: {
+      colors: {
+        "storm-black": "#000000",
+        "storm-white": "#FFFFFF",
+        "storm-yellow": "#FFD600",
+        "storm-red": "#77040F",
+      },
+      fontFamily: {
+        hagrid: ["Hagrid", "sans-serif"],
+        gosh: ["Gosh", "sans-serif"],
+        fixture: ["Fixture", "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
+      },
+      animation: {
+        "storm-fade": "fadeIn 0.3s ease-in-out",
+        "storm-slide": "slideIn 0.3s ease-in-out",
+      },
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        slideIn: {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(0)" },
+        },
+      },
+    },
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
-}
+  plugins: [],
+};
