@@ -1,14 +1,18 @@
 @import "tailwindcss";
 
-/* STORM Brand Colors */
+/* ========================================
+   STORM BRAND COLORS & VARIABLES
+   ======================================== */
+
 @theme {
-  --color-storm-yellow: #ffd600;
+  --color-storm-yellow: #fefaef;
 }
+
 :root {
   /* Main Colors */
   --storm-black: #000000;
   --storm-white: #ffffff;
-  --storm-yellow: #ffd600;
+  --storm-yellow: #fefaef;
 
   /* Secondary Colors */
   --storm-red: #77040f;
@@ -25,12 +29,36 @@
   --font-poppins: "Poppins", sans-serif;
 }
 
-/* Typography Utilities */
+/* ========================================
+   GLOBAL RESETS
+   ======================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-poppins);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   TYPOGRAPHY UTILITIES
+   ======================================== */
+
 .storm-heading {
   font-family: var(--font-hagrid);
   font-weight: 700;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+  line-height: 1.1;
 }
 
 .storm-body {
@@ -46,14 +74,235 @@
   text-transform: uppercase;
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+.storm-gosh {
+  font-family: var(--font-gosh);
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-/* Remove default margins */
+/* ========================================
+   CUSTOM ANIMATIONS
+   ======================================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out;
+}
+
+.animate-slide-in-up {
+  animation: slideInUp 0.6s ease-out;
+}
+
+.animate-slide-in-down {
+  animation: slideInDown 0.6s ease-out;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+/* ========================================
+   SCROLLBAR CUSTOMIZATION
+   ======================================== */
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--storm-gray-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--storm-yellow);
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--storm-black);
+}
+
+/* Firefox */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: var(--storm-yellow) var(--storm-gray-light);
+}
+
+/* ========================================
+   SELECTION STYLES
+   ======================================== */
+
+::selection {
+  background-color: var(--storm-yellow);
+  color: var(--storm-black);
+}
+
+::-moz-selection {
+  background-color: var(--storm-yellow);
+  color: var(--storm-black);
+}
+
+/* ========================================
+   LOADING STATES
+   ======================================== */
+
+.loading-spinner {
+  border: 3px solid var(--storm-gray-light);
+  border-top-color: var(--storm-yellow);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 0.8s linear infinite;
+}
+
+.loading-spinner-sm {
+  border: 2px solid var(--storm-gray-light);
+  border-top-color: var(--storm-yellow);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 0.8s linear infinite;
+}
+
+.loading-spinner-lg {
+  border: 4px solid var(--storm-gray-light);
+  border-top-color: var(--storm-yellow);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Skeleton Loader */
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ========================================
+   RESPONSIVE TYPOGRAPHY
+   ======================================== */
+
+@media (max-width: 768px) {
+  .storm-heading {
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+
+  .storm-body {
+    font-size: clamp(0.875rem, 2vw, 1rem);
+  }
+
+  .storm-nav {
+    font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+  }
 }
