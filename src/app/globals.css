@@ -1,23 +1,17 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* ========================================
    STORM BRAND COLORS & VARIABLES
    ======================================== */
 
-@theme {
-  --color-storm-yellow: #fefaef;
-}
-
 :root {
-  /* Main Colors */
+  /* Main Colors - Para uso em CSS custom */
   --storm-black: #000000;
   --storm-white: #ffffff;
   --storm-yellow: #fefaef;
-
-  /* Secondary Colors */
   --storm-red: #77040f;
-
-  /* Neutral Shades */
   --storm-gray-light: #f5f5f5;
   --storm-gray-medium: #cccccc;
   --storm-gray-dark: #333333;
@@ -50,7 +44,7 @@ body {
 }
 
 /* ========================================
-   TYPOGRAPHY UTILITIES
+   CUSTOM TYPOGRAPHY UTILITIES
    ======================================== */
 
 .storm-heading {
@@ -79,125 +73,6 @@ body {
   font-family: var(--font-gosh);
   font-weight: 700;
   text-transform: uppercase;
-}
-
-/* ========================================
-   CUSTOM ANIMATIONS
-   ======================================== */
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-}
-
-@keyframes bounce {
-  0%,
-  100% {
-    transform: translateY(-25%);
-    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-  }
-  50% {
-    transform: translateY(0);
-    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-  }
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.6s ease-out;
-}
-
-.animate-slide-in-left {
-  animation: slideInLeft 0.6s ease-out;
-}
-
-.animate-slide-in-right {
-  animation: slideInRight 0.6s ease-out;
-}
-
-.animate-slide-in-up {
-  animation: slideInUp 0.6s ease-out;
-}
-
-.animate-slide-in-down {
-  animation: slideInDown 0.6s ease-out;
-}
-
-.animate-spin {
-  animation: spin 1s linear infinite;
-}
-
-.animate-pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-.animate-bounce {
-  animation: bounce 1s infinite;
 }
 
 /* ========================================
@@ -243,6 +118,30 @@ body {
   }
 
   .storm-nav {
-    font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+  }
+}
+
+/* ========================================
+   CUSTOM UTILITIES (if needed)
+   ======================================== */
+
+@layer utilities {
+  /* Custom aspect ratios se precisares */
+  .aspect-3-4 {
+    aspect-ratio: 3 / 4;
+  }
+
+  .aspect-16-10 {
+    aspect-ratio: 16 / 10;
+  }
+
+  .aspect-9-16 {
+    aspect-ratio: 9 / 16;
+  }
+
+  /* Custom scale on hover */
+  .hover-scale-130:hover {
+    transform: scale(1.3);
   }
 }

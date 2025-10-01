@@ -32,7 +32,7 @@ const ProductsPage = () => {
 
       {/* Header Section - IMAGEM */}
       <div className="w-full flex justify-center">
-        <div className="relative w-full max-w-3xl h-12 pb-12">
+        <div className="relative w-full max-w-3xl h-12 pb-12 mb-12">
           <Image
             src="/images/products/catalog/STORM_COLLECTION.png"
             alt="BRAIN STORM COLLECTION"
