@@ -10,7 +10,7 @@ const Header = () => {
   const navigationLinks = [
     { name: "PRODUCTS", path: "/products", active: true },
     { name: "ABOUT US", path: "/about", active: true },
-    { name: "EVENTS", path: "/events", active: false },
+    { name: "EVENTS", path: "/events", active: true },
     { name: "CONTACT", path: "/contact", active: true },
   ];
 
@@ -41,13 +41,13 @@ const Header = () => {
       </button>
 
       {/* Center Logo */}
-      <div className="fixed top-8 left-1/2 transform -translate-x-1/2 z-50">
+      <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
         <Link href="/">
           <Image
             src="/icons/ui/front_logo.png"
             alt="STORM"
-            width={50}
-            height={50}
+            width={60}
+            height={60}
             className="hover:opacity-70 transition-opacity"
           />
         </Link>
@@ -55,11 +55,11 @@ const Header = () => {
 
       {/* Sidebar Menu */}
       <div
-        className={`fixed top-30 left-8 h-full w-80 bg-storm-yellow transform transition-transform duration-300 ease-in-out z-40 ${
+        className={`fixed top-0 left-0 h-full w-75 bg-storm-yellow transform transition-transform duration-300 ease-in-out z-40 ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <nav className="flex flex-col px-16 py-12 gap-8 mt-24">
+        <nav className="flex flex-col px-8 py-24 gap-4 ">
           {navigationLinks.map((link) => (
             <Link
               key={link.name}

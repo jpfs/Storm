@@ -3,10 +3,10 @@ import Link from "next/link";
 
 const HomePage = () => {
   return (
-    <main className="min-h-screen bg-storm-white flex items-center justify-center relative overflow-hidden">
-      {/* Container principal */}
-      <div className="relative w-full max-w-5xl flex items-center justify-center px-4">
-        {/* Corner Elements - usando componentes reutilizáveis */}
+    <main className="min-h-screen bg-white flex items-center justify-center relative overflow-hidden p-8">
+      {/* CONTAINER ÚNICO - Tudo escala junto proporcionalmente */}
+      <div className="relative w-full max-w-[1200px] aspect-[16/10] flex items-center justify-center">
+        {/* Corner Elements - Posicionados em relação ao container pai */}
         <CornerElement
           position="top-left"
           text="100% COTTON"
@@ -31,19 +31,20 @@ const HomePage = () => {
           icon="/icons/home/right_down_arrow.png"
         />
 
-        {/* CENTER - Main Product video */}
-        <div className="relative w-[380px] h-[520px] bg-storm-black rounded-sm overflow-hidden shadow-2xl">
-          <iframe
-            src="https://www.youtube.com/shorts/2cEeirmTuB4"
-            title="STORM Video"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="w-full h-full object-cover"
-            style={{
-              border: "none",
-              pointerEvents: "none",
-            }}
-          />
+        {/* CENTER - Main Product Video - SEM BLACK BARS */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[23%] aspect-[9/16] bg-black rounded-sm overflow-hidden shadow-2xl z-20">
+          {/* Container com overflow hidden para cortar as barras */}
+          <div className="absolute inset-0 w-full h-full overflow-hidden">
+            <iframe
+              src="https://www.youtube.com/embed/2cEeirmTuB4?autoplay=1&mute=1&loop=1&playlist=2cEeirmTuB4&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&disablekb=1&fs=0&iv_load_policy=3"
+              title="STORM Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[112.5%] border-0 pointer-events-none"
+            />
+          </div>
+
+          {/* Overlay para bloquear interações */}
+          <div className="absolute inset-0 z-10 pointer-events-auto cursor-default" />
         </div>
       </div>
 
@@ -53,9 +54,9 @@ const HomePage = () => {
           <Image
             src="/icons/home/STORM_LOGO1-02.png"
             alt="STORM Logo"
-            width={320}
-            height={320}
-            className="w-24 opacity-90 hover:opacity-100 transition-opacity"
+            width={160}
+            height={160}
+            className="w-32 md:w-40 opacity-100 hover:opacity-60 transition-opacity"
           />
         </Link>
       </div>
@@ -63,7 +64,7 @@ const HomePage = () => {
   );
 };
 
-// Componente reutilizável para os elementos dos cantos
+// Componente com posicionamento PERCENTUAL (escala com o container)
 const CornerElement = ({
   position,
   text,
@@ -73,28 +74,27 @@ const CornerElement = ({
   text: string;
   icon: string;
 }) => {
+  // Posições em PERCENTAGEM para escalar proporcionalmente
   const positionClasses = {
-    "top-left": "top-12 left-12",
-    "top-right": "top-12 right-12",
-    "bottom-left": "bottom-16 left-12",
-    "bottom-right": "bottom-16 right-12",
+    "top-left": "top-[14%] left-[24%]",
+    "top-right": "top-[10%] right-[22%]",
+    "bottom-left": "bottom-[8%] left-[24%]",
+    "bottom-right": "bottom-[8%] right-[24%]",
   };
 
   return (
     <div
-      className={`absolute ${positionClasses[position]} flex items-center gap-2 group`}
+      className={`absolute ${positionClasses[position]} flex items-center gap-3 group z-40`}
     >
-      <div className="relative w-[120px] h-[120px]">
+      {/* Tamanho da arrow em % da largura do container */}
+      <div className="relative w-[clamp(100px,15vw,180px)] aspect-square">
         <Image
           src={icon}
           alt={text}
           fill
-          className="object-contain transition-transform group-hover:scale-110 duration-300"
+          className="object-contain transition-transform group-hover:scale-130 duration-300"
         />
       </div>
-      <span className="storm-nav text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        {text}
-      </span>
     </div>
   );
 };
