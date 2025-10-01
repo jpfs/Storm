@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
 
 export const metadata: Metadata = {
   title: "STORM - From Sea to Street We Ride as One",
@@ -31,12 +32,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt">
-      <body className="min-h-screen bg-storm-white flex flex-col">
+      <body className="min-h-screen bg-storm-white">
         <Header />
-
-        <main id="main-content" className="flex-1">
-          {children}
-        </main>
+        {children}
+        <Footer />
       </body>
     </html>
   );

@@ -230,67 +230,6 @@ body {
 }
 
 /* ========================================
-   SELECTION STYLES
-   ======================================== */
-
-::selection {
-  background-color: var(--storm-yellow);
-  color: var(--storm-black);
-}
-
-::-moz-selection {
-  background-color: var(--storm-yellow);
-  color: var(--storm-black);
-}
-
-/* ========================================
-   LOADING STATES
-   ======================================== */
-
-.loading-spinner {
-  border: 3px solid var(--storm-gray-light);
-  border-top-color: var(--storm-yellow);
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  animation: spin 0.8s linear infinite;
-}
-
-.loading-spinner-sm {
-  border: 2px solid var(--storm-gray-light);
-  border-top-color: var(--storm-yellow);
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  animation: spin 0.8s linear infinite;
-}
-
-.loading-spinner-lg {
-  border: 4px solid var(--storm-gray-light);
-  border-top-color: var(--storm-yellow);
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: spin 0.8s linear infinite;
-}
-
-/* Skeleton Loader */
-.skeleton {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200% 100%;
-  animation: loading 1.5s infinite;
-}
-
-@keyframes loading {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
-  }
-}
-
-/* ========================================
    RESPONSIVE TYPOGRAPHY
    ======================================== */
 
