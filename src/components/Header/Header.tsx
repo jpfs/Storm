@@ -23,7 +23,7 @@ const Header = () => {
       {/* Menu Button - Fixed Top Left */}
       <button
         onClick={toggleMenu}
-        className="fixed top-8 left-8 z-50 p-2 hover:opacity-70 transition-opacity"
+        className="fixed top-8 left-8 z-200 p-2 hover:opacity-70 transition-opacity"
         aria-label="Toggle menu"
       >
         {isMenuOpen ? (
@@ -41,7 +41,7 @@ const Header = () => {
       </button>
 
       {/* Center Logo */}
-      <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
+      <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-200">
         <Link href="/">
           <Image
             src="/icons/ui/front_logo.png"
@@ -55,25 +55,35 @@ const Header = () => {
 
       {/* Sidebar Menu */}
       <div
-        className={`fixed top-0 left-0 h-full w-75 bg-storm-yellow transform transition-transform duration-300 ease-in-out z-40 ${
+        className={`fixed top-0 left-0 h-full bg-storm-yellow transform transition-transform duration-300 ease-in-out z-100 ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
+        style={{ width: "400px" }}
       >
-        <nav className="flex flex-col px-8 py-24 gap-4 ">
-          {navigationLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.path}
-              className={`text-2xl font-poppins font-medium tracking-wide transition-all duration-200 block ${
-                link.active
-                  ? "text-storm-black hover:text-storm-red hover:translate-x-2 cursor-pointer"
-                  : "text-storm-gray-medium cursor-not-allowed pointer-events-none opacity-50"
-              }`}
-              onClick={() => link.active && setIsMenuOpen(false)}
-            >
-              {link.name}
-            </Link>
-          ))}
+        <nav
+          className="h-full flex flex-col"
+          style={{
+            paddingLeft: "50px",
+            paddingRight: "60px",
+            paddingTop: "100px",
+          }}
+        >
+          <div className="flex flex-col gap-8">
+            {navigationLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.path}
+                className={`text-3xl font-poppins tracking-wide transition-all duration-200 block ${
+                  link.active
+                    ? "text-storm-black hover:text-storm-red hover:translate-x-2 cursor-pointer"
+                    : "text-storm-gray-medium cursor-not-allowed pointer-events-none opacity-50"
+                }`}
+                onClick={() => link.active && setIsMenuOpen(false)}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
         </nav>
       </div>
 
