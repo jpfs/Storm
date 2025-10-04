@@ -5,7 +5,7 @@ const HomePage = () => {
     <main className="min-h-screen bg-white flex items-center justify-center relative overflow-hidden p-8">
       {/* CONTAINER ÚNICO - Tudo escala junto proporcionalmente */}
       <div className="relative w-full max-w-[1200px] aspect-[16/10] flex items-center justify-center">
-        {/* Corner Elements - Posicionados em relação ao container pai */}
+        {/* Corner Elements - Z-index mais alto para garantir hover */}
         <CornerElement
           position="top-left"
           text="100% COTTON"
@@ -29,8 +29,9 @@ const HomePage = () => {
           text="ORIGINAL DESIGN"
           icon="/icons/home/right_down_arrow.png"
         />
-        {/* CENTER - GIF do Produto */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[23%] aspect-[9/16] bg-black rounded-sm overflow-hidden z-20">
+
+        {/* CENTER - GIF do Produto com pointer-events-none */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[23%] aspect-[9/16] bg-black rounded-sm overflow-hidden z-20 pointer-events-none">
           <Image
             src="/images/products/home/video_website.gif"
             alt="STORM Product Animation"
@@ -45,7 +46,7 @@ const HomePage = () => {
   );
 };
 
-// Componente com posicionamento PERCENTUAL (escala com o container)
+// Componente com posicionamento PERCENTUAL
 const CornerElement = ({
   position,
   text,
@@ -55,7 +56,6 @@ const CornerElement = ({
   text: string;
   icon: string;
 }) => {
-  // Posições em PERCENTAGEM para escalar proporcionalmente
   const positionClasses = {
     "top-left": "top-[14%] left-[24%]",
     "top-right": "top-[10%] right-[22%]",
@@ -65,15 +65,16 @@ const CornerElement = ({
 
   return (
     <div
-      className={`absolute ${positionClasses[position]} flex items-center gap-3 group z-40`}
+      className={`absolute ${positionClasses[position]} flex items-center gap-3 group z-50 cursor-pointer`}
     >
-      {/* Tamanho da arrow em % da largura do container */}
+      {/* Seta com animação de hover */}
       <div className="relative w-[clamp(100px,15vw,180px)] aspect-square">
         <Image
           src={icon}
           alt={text}
           fill
-          className="object-contain transition-transform group-hover:scale-130 duration-300"
+          className="object-contain transition-transform duration-300 ease-out group-hover:scale-125"
+          priority
         />
       </div>
     </div>
