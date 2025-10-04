@@ -7,6 +7,7 @@ import Image from "next/image";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
+  const [language, setLanguage] = useState("pt");
 
   const navigationLinks = [
     { name: "PRODUCTS", path: "/products", active: true, hasSubmenu: true },
@@ -52,6 +53,74 @@ const Header = () => {
             className="hover:opacity-70 transition-opacity"
           />
         </Link>
+      </div>
+
+      {/* Right Side Buttons */}
+      <div className="fixed top-8 right-8 z-[200] flex items-center gap-4">
+        {/* Instagram & Email Group */}
+        <div className="flex items-center gap-3">
+          <a
+            href="https://www.instagram.com/_storm_pt/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:opacity-70 transition-opacity"
+            aria-label="Instagram"
+          >
+            <Image
+              src="/icons/ui/STORM_LOGO_INSTA.png"
+              alt="Instagram"
+              width={40}
+              height={40}
+            />
+          </a>
+          <a
+            href="mailto:geral.storm.pt@gmail.com"
+            className="hover:opacity-70 transition-opacity"
+            aria-label="Email"
+          >
+            <Image
+              src="/icons/ui/STORM_LOGO_EMAIL.png"
+              alt="Email"
+              width={40}
+              height={40}
+            />
+          </a>
+        </div>
+
+        {/* Vertical Divider */}
+        <div className="w-px h-6 bg-storm-black opacity-30" />
+
+        {/* Language Buttons */}
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setLanguage("pt")}
+            className="hover:opacity-70 transition-opacity"
+            aria-label="Portuguese"
+          >
+            <Image
+              src={`/icons/ui/STORM_LANG_PT_${
+                language === "pt" ? "BLACK" : "WHITE"
+              }.png`}
+              alt="PT"
+              width={40}
+              height={40}
+            />
+          </button>
+          <button
+            onClick={() => setLanguage("en")}
+            className="hover:opacity-70 transition-opacity"
+            aria-label="English"
+          >
+            <Image
+              src={`/icons/ui/STORM_LANG_EN_${
+                language === "en" ? "BLACK" : "WHITE"
+              }.png`}
+              alt="EN"
+              width={40}
+              height={40}
+            />
+          </button>
+        </div>
       </div>
 
       {/* Sidebar Menu */}

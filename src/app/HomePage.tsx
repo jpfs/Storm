@@ -29,21 +29,16 @@ const HomePage = () => {
           text="ORIGINAL DESIGN"
           icon="/icons/home/right_down_arrow.png"
         />
-
-        {/* CENTER - Main Product Video - SEM BLACK BARS */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[23%] aspect-[9/16] bg-black rounded-sm overflow-hidden shadow-2xl z-20">
-          {/* Container com overflow hidden para cortar as barras */}
-          <div className="absolute inset-0 w-full h-full overflow-hidden">
-            <iframe
-              src="https://www.youtube.com/embed/2cEeirmTuB4?autoplay=1&mute=1&loop=1&playlist=2cEeirmTuB4&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&disablekb=1&fs=0&iv_load_policy=3"
-              title="STORM Video"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[112.5%] border-0 pointer-events-none"
-            />
-          </div>
-
-          {/* Overlay para bloquear interações */}
-          <div className="absolute inset-0 z-10 pointer-events-auto cursor-default" />
+        {/* CENTER - GIF do Produto */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[23%] aspect-[9/16] bg-black rounded-sm overflow-hidden z-20">
+          <Image
+            src="/images/products/home/video_website.gif"
+            alt="STORM Product Animation"
+            fill
+            className="object-cover"
+            priority
+            unoptimized
+          />
         </div>
       </div>
     </main>
