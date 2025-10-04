@@ -6,31 +6,32 @@ import Image from "next/image";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isProductsOpen, setIsProductsOpen] = useState(false);
 
   const navigationLinks = [
-    { name: "PRODUCTS", path: "/products", active: true },
+    { name: "PRODUCTS", path: "/products", active: true, hasSubmenu: true },
     { name: "ABOUT US", path: "/about", active: true },
-    { name: "EVENTS", path: "/events", active: true },
-    { name: "CONTACT", path: "/contact", active: true },
   ];
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const productSubLinks = [
+    { name: "Loja", path: "/products" },
+    { name: "T-Shirts", path: "/products" },
+    { name: "Chapéus", path: "/products" },
+  ];
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
     <>
-      {/* Menu Button - Fixed Top Left */}
+      {/* Menu Button */}
       <button
         onClick={toggleMenu}
-        className="fixed top-8 left-8 z-200 p-2 hover:opacity-70 transition-opacity"
+        className="fixed top-8 left-8 z-[200] p-2 hover:opacity-70 transition-opacity"
         aria-label="Toggle menu"
       >
         {isMenuOpen ? (
-          // X Icon quando menu está aberto
           <Image src="/icons/ui/xlogo.png" alt="Close" width={50} height={50} />
         ) : (
-          // Menu hamburger quando está fechado
           <Image
             src="/icons/ui/menu_3_bar.png"
             alt="Menu"
@@ -41,7 +42,7 @@ const Header = () => {
       </button>
 
       {/* Center Logo */}
-      <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-200">
+      <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-[200]">
         <Link href="/">
           <Image
             src="/icons/ui/front_logo.png"
@@ -55,7 +56,7 @@ const Header = () => {
 
       {/* Sidebar Menu */}
       <div
-        className={`fixed top-0 left-0 h-full bg-storm-yellow transform transition-transform duration-300 ease-in-out z-45 ${
+        className={`fixed top-0 left-0 h-full bg-storm-yellow transform transition-transform duration-300 ease-in-out z-[45] ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
         style={{ width: "400px" }}
@@ -69,20 +70,45 @@ const Header = () => {
           }}
         >
           <div className="flex flex-col gap-8">
-            {navigationLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.path}
-                className={`storm-nav tracking-wide transition-all duration-200 block ${
-                  link.active
-                    ? "text-storm-black hover:text-storm-red hover:translate-x-2 cursor-pointer"
-                    : "text-storm-gray-medium cursor-not-allowed pointer-events-none opacity-50"
-                }`}
-                onClick={() => link.active && setIsMenuOpen(false)}
-              >
-                {link.name}
-              </Link>
-            ))}
+            {navigationLinks.map((link) =>
+              link.hasSubmenu ? (
+                <div key={link.name} className="flex flex-col gap-2">
+                  <button
+                    onClick={() => setIsProductsOpen(!isProductsOpen)}
+                    className="storm-nav text-storm-black tracking-wide transition-all duration-200 text-left hover:text-storm-red cursor-pointer"
+                  >
+                    {link.name}
+                  </button>
+                  {isProductsOpen && (
+                    <div className="ml-4 flex flex-col gap-2">
+                      {productSubLinks.map((sublink) => (
+                        <Link
+                          key={sublink.name}
+                          href={sublink.path}
+                          className="storm-sub-nav text-storm-black tracking-wide transition-all duration-200 hover:text-storm-red hover:translate-x-2 cursor-pointer"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          {sublink.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link
+                  key={link.name}
+                  href={link.path}
+                  className={`storm-nav tracking-wide transition-all duration-200 block ${
+                    link.active
+                      ? "text-storm-black hover:text-storm-red hover:translate-x-2 cursor-pointer"
+                      : "text-storm-gray-medium cursor-not-allowed pointer-events-none opacity-50"
+                  }`}
+                  onClick={() => link.active && setIsMenuOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              )
+            )}
           </div>
         </nav>
       </div>
@@ -90,7 +116,7 @@ const Header = () => {
       {/* Overlay */}
       {isMenuOpen && (
         <div
-          className="fixed inset-0 bg-storm-black bg-opacity-50 z-30"
+          className="fixed inset-0 bg-storm-black bg-opacity-50 z-[30]"
           onClick={toggleMenu}
         />
       )}

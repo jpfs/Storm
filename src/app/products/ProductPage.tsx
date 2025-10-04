@@ -1,38 +1,19 @@
+// src/app/products/ProductPage.tsx
 "use client";
 
 import Image from "next/image";
 import Link from "next/link";
+import { products } from "@/data/products";
 
 const ProductsPage = () => {
-  const products = [
-    {
-      id: "struggle",
-      name: "STRUGGLE",
-      image: "/images/products/catalog/STORM-left.jpg",
-      slug: "struggle",
-    },
-    {
-      id: "simple",
-      name: "SIMPLE",
-      image: "/images/products/catalog/STORM-center.jpg",
-      slug: "simple",
-    },
-    {
-      id: "how-to",
-      name: "HOW TO",
-      image: "/images/products/catalog/STORM-right.jpg",
-      slug: "how-to",
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-white">
       {/* Spacer para compensar o Header fixo */}
-      <div className="h-40" />
+      <div className="h-32" />
 
-      {/* Header Section - IMAGEM */}
+      {/* Header Section */}
       <div className="w-full flex justify-center">
-        <div className="relative w-full max-w-3xl h-12 pb-12 mb-12">
+        <div className="relative w-full max-w-3xl h-12 pb-10 mb-8">
           <Image
             src="/images/products/catalog/STORM_COLLECTION.png"
             alt="BRAIN STORM COLLECTION"
@@ -43,9 +24,9 @@ const ProductsPage = () => {
         </div>
       </div>
 
-      {/* Products Grid - CENTRALIZADO */}
+      {/* Products Grid */}
       <div className="flex justify-center px-4">
-        <div className="w-full max-w-screen-xl">
+        <div className="w-full max-w-4xl">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 lg:gap-16">
             {products.map((product) => (
               <Link
@@ -56,7 +37,7 @@ const ProductsPage = () => {
                 {/* Product Image Container */}
                 <div className="relative w-full aspect-[3/4] bg-transparent overflow-hidden mb-6">
                   <Image
-                    src={product.image}
+                    src={product.catalogImage}
                     alt={product.name}
                     fill
                     className="object-contain group-hover:scale-105 transition-transform duration-500"
@@ -64,7 +45,7 @@ const ProductsPage = () => {
                 </div>
 
                 {/* Product Name */}
-                <h2 className="storm-nav text-center text-sm md:text-base tracking-[0.3em] uppercase group-hover:text-storm-red transition-colors duration-300">
+                <h2 className="storm-nav text-center text-sm md:text-base tracking-[0.3em] uppercase group-hover:text-storm-red group-hover:scale-105 transition-colors duration-500">
                   {product.name}
                 </h2>
               </Link>
