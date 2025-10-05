@@ -1,0 +1,24 @@
+{
+  "menu": {
+    "products": "PRODUTOS",
+    "about": "SOBRE NÓS",
+    "store": "Loja",
+    "tshirts": "T-Shirts",
+    "hats": "Chapéus"
+  },
+  "home": {
+    "topLeft": "100% ALGODÃO",
+    "topRight": "STORM",
+    "bottomLeft": "COLEÇÃO BRAIN STORM",
+    "bottomRight": "DESIGN ORIGINAL"
+  },
+  "about": {
+    "backAlt": "Voltar",
+    "paragraph1": "A STORM existe para celebrar a vida sobre uma prancha — em qualquer terreno, sob qualquer tempestade. A nossa missão é unir surfistas, skaters e riders de todos os estilos sob uma paixão comum: a liberdade de movimento e o amor pelas boards.",
+    "paragraph2": "Não acreditamos em comparar ou competir para ver qual é o desporto mais 'difícil'. Valorizamos a conexão, o respeito e a alegria de deslizar. A STORM não é apenas uma marca de roupa — é uma forma de viver, inspirada pela energia do oceano, das ruas e das montanhas. No seu núcleo, a STORM é sobre uma só comunidade, um só espírito e uma só viagem."
+  },
+  "products": {
+    "title": "PRODUTOS",
+    "description": "A coleção BRAIN STORM celebra a liberdade, o estilo e o espírito que unem todos os board sports."
+  }
+}

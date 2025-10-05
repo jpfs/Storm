@@ -1,9 +1,14 @@
-// src/app/about/AboutPage.tsx
 "use client";
 
 import Image from "next/image";
+import { useTranslations } from "next-intl";
+import { usePathname } from "next/navigation";
 
 const AboutPage = () => {
+  const t = useTranslations("about");
+  const pathname = usePathname();
+  const currentLocale = pathname.startsWith("/en") ? "en" : "pt";
+
   return (
     <div className="min-h-screen bg-white relative">
       {/* Espaço para compensar o Header fixo */}
@@ -18,8 +23,10 @@ const AboutPage = () => {
             className="hover:scale-110 transition-transform"
           >
             <Image
-              src="/icons/products/STORM_ICON_BACK.png"
-              alt="Voltar"
+              src={`/icons/products/STORM_ICON_BACK_${
+                currentLocale === "en" ? "EN" : "PT"
+              }.png`}
+              alt={t("backAlt")}
               width={120}
               height={120}
               className="object-contain"
@@ -49,12 +56,12 @@ const AboutPage = () => {
           />
         </div>
 
-        {/* --- NOVA SECÇÃO COM GIF E TEXTO --- */}
+        {/* --- SECÇÃO COM GIF E TEXTO --- */}
         <section className="w-full flex flex-col items-center justify-center text-center mt-10 mb-24 px-6">
-          {/* GIF — agora mais pequeno */}
+          {/* GIF */}
           <div className="relative w-full max-w-sm aspect-[3/4] mb-10">
             <Image
-              src="/images/about us/STORM_ABOUT_US_RIDER.gif"
+              src="/images/about us/1REELS_STORM3.gif"
               alt="Storm Rider"
               fill
               unoptimized
@@ -64,20 +71,8 @@ const AboutPage = () => {
 
           {/* TEXTO DESCRITIVO */}
           <div className="max-w-2xl text-storm-black leading-relaxed tracking-wide text-sm md:text-base">
-            <p className="mb-6">
-              STORM exists to celebrate the life of riding, on any board, on any
-              ground, in any storm. Our mission is to unite surfers, skaters,
-              and riders of every style under one shared passion: the freedom of
-              movement and the love of boards.
-            </p>
-            <p>
-              We don’t believe in comparing or competing to see which sport is
-              the “toughest.” Instead, we stand for connection, respect, and the
-              joy of the ride. STORM is not just a clothing brand, it’s a way of
-              living, inspired by the energy of the ocean, the streets, and the
-              mountains. At its core, STORM is about one community, one spirit,
-              and one ride.
-            </p>
+            <p className="mb-6">{t("paragraph1")}</p>
+            <p>{t("paragraph2")}</p>
           </div>
         </section>
       </div>

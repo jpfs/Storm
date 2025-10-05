@@ -3,24 +3,40 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
+import { usePathname, useRouter } from "next/navigation";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
-  const [language, setLanguage] = useState("pt");
+
+  const pathname = usePathname();
+  const router = useRouter();
+
+  // Detecta o idioma atual pela rota
+  const currentLocale = pathname.startsWith("/en") ? "en" : "pt";
+
+  const t = useTranslations("menu");
 
   const navigationLinks = [
-    { name: "PRODUCTS", path: "/products", active: true, hasSubmenu: true },
-    { name: "ABOUT US", path: "/about", active: true },
+    { name: t("products"), path: "/products", active: true, hasSubmenu: true },
+    { name: t("about"), path: "/about", active: true },
   ];
 
   const productSubLinks = [
-    { name: "Loja", path: "/products" },
-    { name: "T-Shirts", path: "/products" },
-    { name: "Chapéus", path: "/products" },
+    { name: t("store"), path: "/products" },
+    { name: t("tshirts"), path: "/products" },
+    { name: t("hats"), path: "/products" },
   ];
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  // 🔄 Troca de idioma mantendo a rota atual
+  const switchLanguage = (newLocale: string) => {
+    if (newLocale === currentLocale) return;
+    const newPath = pathname.replace(/^\/(pt|en)/, `/${newLocale}`);
+    router.push(newPath);
+  };
 
   return (
     <>
@@ -44,7 +60,7 @@ const Header = () => {
 
       {/* Center Logo */}
       <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-[200]">
-        <Link href="/">
+        <Link href={`/${currentLocale}`}>
           <Image
             src="/icons/ui/front_logo.png"
             alt="STORM"
@@ -57,7 +73,7 @@ const Header = () => {
 
       {/* Right Side Buttons */}
       <div className="fixed top-8 right-8 z-[200] flex items-center gap-4">
-        {/* Instagram & Email Group */}
+        {/* Instagram & Email */}
         <div className="flex items-center gap-3">
           <a
             href="https://www.instagram.com/_storm_pt/"
@@ -87,19 +103,19 @@ const Header = () => {
           </a>
         </div>
 
-        {/* Vertical Divider */}
+        {/* Divider */}
         <div className="w-px h-6 bg-storm-black opacity-30" />
 
         {/* Language Buttons */}
         <div className="flex items-center gap-2">
           <button
-            onClick={() => setLanguage("pt")}
+            onClick={() => switchLanguage("pt")}
             className="hover:opacity-70 transition-opacity"
             aria-label="Portuguese"
           >
             <Image
               src={`/icons/ui/STORM_LANG_PT_${
-                language === "pt" ? "BLACK" : "WHITE"
+                currentLocale === "pt" ? "BLACK" : "WHITE"
               }.png`}
               alt="PT"
               width={40}
@@ -107,13 +123,13 @@ const Header = () => {
             />
           </button>
           <button
-            onClick={() => setLanguage("en")}
+            onClick={() => switchLanguage("en")}
             className="hover:opacity-70 transition-opacity"
             aria-label="English"
           >
             <Image
               src={`/icons/ui/STORM_LANG_EN_${
-                language === "en" ? "BLACK" : "WHITE"
+                currentLocale === "en" ? "BLACK" : "WHITE"
               }.png`}
               alt="EN"
               width={40}
@@ -153,7 +169,7 @@ const Header = () => {
                       {productSubLinks.map((sublink) => (
                         <Link
                           key={sublink.name}
-                          href={sublink.path}
+                          href={`/${currentLocale}${sublink.path}`}
                           className="storm-sub-nav text-storm-black tracking-wide transition-all duration-200 hover:text-storm-red hover:translate-x-2 cursor-pointer"
                           onClick={() => setIsMenuOpen(false)}
                         >
@@ -166,7 +182,7 @@ const Header = () => {
               ) : (
                 <Link
                   key={link.name}
-                  href={link.path}
+                  href={`/${currentLocale}${link.path}`}
                   className={`storm-nav tracking-wide transition-all duration-200 block ${
                     link.active
                       ? "text-storm-black hover:text-storm-red hover:translate-x-2 cursor-pointer"

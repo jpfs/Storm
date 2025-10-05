@@ -1,36 +1,38 @@
+"use client";
+
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const HomePage = () => {
+  const t = useTranslations("home");
+
   return (
     <main className="min-h-screen bg-white flex items-center justify-center relative overflow-hidden p-8">
       {/* CONTAINER ÚNICO - Tudo escala junto proporcionalmente */}
       <div className="relative w-full max-w-[1200px] aspect-[16/10] flex items-center justify-center">
-        {/* Corner Elements - Z-index mais alto para garantir hover */}
+        {/* Corner Elements */}
         <CornerElement
           position="top-left"
-          text="100% COTTON"
+          text={t("topLeft")}
           icon="/icons/home/left_up_arrow.png"
         />
-
         <CornerElement
           position="top-right"
-          text="STORM"
+          text={t("topRight")}
           icon="/icons/home/right_up_arrow.png"
         />
-
         <CornerElement
           position="bottom-left"
-          text="BRAIN STORM COLLECTION"
+          text={t("bottomLeft")}
           icon="/icons/home/left_down_arrow.png"
         />
-
         <CornerElement
           position="bottom-right"
-          text="ORIGINAL DESIGN"
+          text={t("bottomRight")}
           icon="/icons/home/right_down_arrow.png"
         />
 
-        {/* CENTER - GIF do Produto com pointer-events-none */}
+        {/* CENTER - GIF do Produto */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[23%] aspect-[9/16] bg-black rounded-sm overflow-hidden z-20 pointer-events-none">
           <Image
             src="/images/products/home/video_website.gif"
@@ -46,7 +48,6 @@ const HomePage = () => {
   );
 };
 
-// Componente com posicionamento PERCENTUAL
 const CornerElement = ({
   position,
   text,
@@ -67,7 +68,6 @@ const CornerElement = ({
     <div
       className={`absolute ${positionClasses[position]} flex items-center gap-3 group z-50 cursor-pointer`}
     >
-      {/* Seta com animação de hover */}
       <div className="relative w-[clamp(100px,15vw,180px)] aspect-square">
         <Image
           src={icon}

@@ -1,4 +1,4 @@
-import HomePage from "./HomePage";
+import { redirect } from "next/navigation";
 
 export const metadata = {
   title: "STORM - From Sea to Street We Ride as One",
@@ -22,6 +22,7 @@ export const metadata = {
   },
 };
 
-export default function Page() {
-  return <HomePage />;
+// 🚀 Redireciona automaticamente da home ("/") para "/pt"
+export default function HomeRedirect() {
+  redirect("/pt");
 }

@@ -1,0 +1,24 @@
+{
+  "menu": {
+    "products": "PRODUCTS",
+    "about": "ABOUT US",
+    "store": "Shop",
+    "tshirts": "T-Shirts",
+    "hats": "Hats"
+  },
+  "home": {
+    "topLeft": "100% COTTON",
+    "topRight": "STORM",
+    "bottomLeft": "BRAIN STORM COLLECTION",
+    "bottomRight": "ORIGINAL DESIGN"
+  },
+  "about": {
+    "backAlt": "Go Back",
+    "paragraph1": "STORM exists to celebrate the life of riding, on any board, on any ground, in any storm. Our mission is to unite surfers, skaters, and riders of every style under one shared passion: the freedom of movement and the love of boards.",
+    "paragraph2": "We don’t believe in comparing or competing to see which sport is the 'toughest.' Instead, we stand for connection, respect, and the joy of the ride. STORM is not just a clothing brand — it’s a way of living, inspired by the energy of the ocean, the streets, and the mountains. At its core, STORM is about one community, one spirit, and one ride."
+  },
+  "products": {
+    "title": "PRODUCTS",
+    "description": "The BRAIN STORM collection celebrates the freedom, style, and spirit that unite all board sports."
+  }
+}

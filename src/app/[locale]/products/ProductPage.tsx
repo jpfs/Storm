@@ -1,11 +1,13 @@
-// src/app/products/ProductPage.tsx
 "use client";
 
 import Image from "next/image";
 import Link from "next/link";
 import { products } from "@/data/products";
+import { useTranslations } from "next-intl";
 
 const ProductsPage = () => {
+  const t = useTranslations("products");
+
   return (
     <div className="min-h-screen bg-white">
       {/* Spacer para compensar o Header fixo */}
