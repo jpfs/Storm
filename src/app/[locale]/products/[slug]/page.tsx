@@ -1,45 +1,29 @@
-// src/app/products/[slug]/page.tsx
 import { notFound } from "next/navigation";
-import { getProductBySlug, products } from "@/data/products";
 import ProductDetailPage from "./ProductDetailPage";
+import { products } from "@/data/products";
 
-interface ProductPageProps {
-  params: {
-    slug: string;
-  };
+export async function generateStaticParams() {
+  return products.map((p) => ({ slug: p.slug }));
 }
 
-// 👇 Gerar páginas estáticas para todos os produtos
-export function generateStaticParams() {
-  return products.map((product) => ({
-    slug: product.slug,
-  }));
-}
+type Props = {
+  params: Promise<{ slug: string }>;
+};
 
-// 👇 Metadata dinâmica
-export function generateMetadata({ params }: ProductPageProps) {
-  const product = getProductBySlug(params.slug);
-
-  if (!product) {
-    return {
-      title: "Product Not Found - STORM",
-    };
-  }
+export async function generateMetadata({ params }: Props) {
+  const { slug } = await params;
+  const product = products.find((p) => p.slug === slug);
+  if (!product) return { title: "Product Not Found - STORM" };
 
   return {
     title: `${product.name} - STORM`,
-    description: product.description,
+    description: product.description.en,
   };
 }
 
-// 👇 Componente da página
-export default function ProductPage({ params }: ProductPageProps) {
-  const product = getProductBySlug(params.slug);
-
-  // Se o produto não existir, mostra 404
-  if (!product) {
-    notFound();
-  }
-
+export default async function Page({ params }: Props) {
+  const { slug } = await params;
+  const product = products.find((p) => p.slug === slug);
+  if (!product) notFound();
   return <ProductDetailPage product={product} />;
 }

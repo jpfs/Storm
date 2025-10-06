@@ -1,20 +1,15 @@
+// src/app/products/[slug]/ProductDetailPage.tsx
 "use client";
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 import { Product, ColorVariant } from "@/data/products";
-import { useTranslations } from "next-intl";
 
 interface ProductDetailPageProps {
   product: Product;
 }
 
 const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
-  const pathname = usePathname();
-  const locale: "pt" | "en" = pathname.startsWith("/en") ? "en" : "pt";
-  const t = useTranslations("productDetail");
-
   const [selectedColor, setSelectedColor] = useState<ColorVariant>(
     product.colorVariants[0]
   );
@@ -43,14 +38,12 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
     }, 5000);
   };
 
-  // ✅ fallback para main image caso gallery esteja vazia
+  const currentImage =
+    selectedColor.images.gallery[selectedImageIndex] || product.catalogImage;
   const galleryImages =
     selectedColor.images.gallery.length > 0
       ? selectedColor.images.gallery
-      : [selectedColor.images.main];
-
-  const currentImage = galleryImages[selectedImageIndex];
-  const L = locale === "en" ? "EN" : "PT";
+      : [product.catalogImage, product.catalogImage, product.catalogImage];
 
   return (
     <div className="min-h-screen bg-white relative">
@@ -80,8 +73,8 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
               className="hover:scale-110 transition-transform"
             >
               <Image
-                src={`/icons/products/STORM_ICON_BACK_${L}.png`}
-                alt={t("backAlt")}
+                src="/icons/products/STORM_ICON_BACK.png"
+                alt="Voltar"
                 width={150}
                 height={150}
                 className="object-contain"
@@ -95,9 +88,9 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
               {/* Imagem Principal */}
               <div className="relative w-[300px] max-h-[500px]">
                 <Image
-                  key={`${selectedColor.hex}-${selectedImageIndex}`}
+                  key={`${selectedColor.name}-${selectedImageIndex}`}
                   src={currentImage}
-                  alt={`${product.name} - ${selectedColor.name[locale]}`}
+                  alt={`${product.name} - ${selectedColor.name}`}
                   width={300}
                   height={500}
                   className="object-contain w-full h-auto transition-opacity duration-300"
@@ -109,7 +102,7 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
               <div className="flex gap-4 justify-center">
                 {galleryImages.map((image, index) => (
                   <button
-                    key={`${selectedColor.hex}-thumb-${index}`}
+                    key={`${selectedColor.name}-thumb-${index}`}
                     onClick={() => setSelectedImageIndex(index)}
                     className={`relative w-16 h-20 transition-all duration-200 ${
                       selectedImageIndex === index
@@ -132,7 +125,7 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
             <button
               onClick={handleNextImage}
               className="w-8 h-28 flex items-center justify-center hover:scale-110 transition-transform mt-32"
-              aria-label={t("nextImage")}
+              aria-label="Next image"
             >
               <span className="text-3xl">›</span>
             </button>
@@ -147,7 +140,7 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
 
             {/* Descrição */}
             <p className="storm-body text-sm leading-relaxed text-storm-gray-dark">
-              {product.description[locale]}
+              {product.description}
             </p>
 
             {/* Features */}
@@ -156,7 +149,7 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
                 onClick={() => setIsFeaturesOpen(!isFeaturesOpen)}
                 className="flex items-center gap-1 storm-nav text-xs hover:text-storm-red transition-colors"
               >
-                <span>{t("features")}</span>
+                <span>FEATURES</span>
                 <span
                   className={`transform transition-transform duration-300 ${
                     isFeaturesOpen ? "rotate-90" : "rotate-0"
@@ -174,7 +167,7 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
                 }`}
               >
                 <ul className="space-y-1">
-                  {product.features[locale].map((feature, index) => (
+                  {product.features.map((feature, index) => (
                     <li
                       key={index}
                       className="storm-body text-sm text-storm-gray-dark flex items-start"
@@ -192,7 +185,7 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
               <button onClick={handleSizeClick} className="w-[250px]">
                 <Image
                   src="/icons/products/sizes.png"
-                  alt={t("sizeGuide")}
+                  alt="Size Guide"
                   width={300}
                   height={150}
                   className="w-full h-auto hover:opacity-80 transition-opacity"
@@ -205,21 +198,21 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
               <div className="flex items-center gap-3">
                 {product.colorVariants.map((variant) => (
                   <button
-                    key={variant.hex}
+                    key={variant.name}
                     onClick={() => handleColorChange(variant)}
                     className="relative group"
-                    title={variant.name[locale]}
+                    title={variant.name}
                   >
                     <div
                       className={`w-8 h-8 rounded-full transition-all duration-200 group-hover:scale-110 ${
-                        selectedColor.hex === variant.hex
+                        selectedColor.name === variant.name
                           ? "ring-2 ring-storm-black"
                           : "border-2 border-gray-300"
                       }`}
                       style={{ backgroundColor: variant.hex }}
                     />
                     <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-xs opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                      {variant.name[locale]}
+                      {variant.name}
                     </span>
                   </button>
                 ))}
@@ -231,7 +224,7 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
               <>
                 <div className="absolute top-[190px] right-12 animate-[slideInBounceRight_0.6s_ease-out]">
                   <Image
-                    src={`/icons/products/STORM_ICON_NO.png`}
+                    src="/icons/products/STORM_ICON_NO.png"
                     alt="Size Guide 1"
                     width={200}
                     height={200}
@@ -241,7 +234,7 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
 
                 <div className="absolute top-[330px] left-0 animate-[slideInBounceLeft_0.6s_ease-out_0.2s_backwards]">
                   <Image
-                    src={`/icons/products/STORM_ICON_YESS.png`}
+                    src="/icons/products/STORM_ICON_YESS.png"
                     alt="Size Guide 2"
                     width={200}
                     height={200}
@@ -260,8 +253,8 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
                 className="hover:scale-110 transition-transform inline-block"
               >
                 <Image
-                  src={`/icons/products/STORM_ICON_BUY_${L}.png`}
-                  alt={t("buyOnInsta")}
+                  src="/icons/products/STORM_ICON_BUY.png"
+                  alt="Falar connosco no Instagram"
                   width={250}
                   height={250}
                   className="object-contain"

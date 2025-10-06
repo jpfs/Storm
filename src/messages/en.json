@@ -20,5 +20,12 @@
   "products": {
     "title": "PRODUCTS",
     "description": "The BRAIN STORM collection celebrates the freedom, style, and spirit that unite all board sports."
+  },
+  "productDetail": {
+    "backAlt": "Go Back",
+    "features": "FEATURES",
+    "buyOnInsta": "Contact us on Instagram",
+    "sizeGuide": "Size guide",
+    "nextImage": "Next image"
   }
 }

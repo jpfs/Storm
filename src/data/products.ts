@@ -1,7 +1,8 @@
-// src/data/products.ts
-
 export interface ColorVariant {
-  name: string;
+  name: {
+    pt: string;
+    en: string;
+  };
   hex: string;
   images: {
     main: string;
@@ -13,37 +14,52 @@ export interface Product {
   id: string;
   slug: string;
   name: string;
-  description: string;
-  features: string[];
-  // Imagem principal para o catálogo
+  description: {
+    pt: string;
+    en: string;
+  };
+  features: {
+    pt: string[];
+    en: string[];
+  };
   catalogImage: string;
-  // Variações de cor com suas próprias imagens
   colorVariants: ColorVariant[];
 }
 
-// PRODUTOS
+// 🔹 Exemplo da estrutura real — copia o teu conteúdo original dentro deste formato
 export const products: Product[] = [
   {
     id: "1",
     slug: "struggle",
     name: "STRUGGLE",
-    description:
-      "Oversized T-shirt | 100% Cotton Crafted from premium cotton for maximum comfort. This oversized tee delivers a relaxed fit and effortless style. The ribbed crew neck adds a subtle detail, while the design on both the front and back makes it a true statement piece.",
-    features: [
-      "200 g/m²",
-      "100% cotton",
-      "Knitted",
-      "Single Jersey",
-      "Casual oversized cut",
-      "Dropped shoulders",
-      "Ribbed crew neck",
-    ],
-    // Imagem que aparece no catálogo/listagem
+    description: {
+      en: "Oversized T-shirt | 100% Cotton Crafted from premium cotton for maximum comfort. This oversized tee delivers a relaxed fit and effortless style. The ribbed crew neck adds a subtle detail, while the design on both the front and back makes it a true statement piece.",
+      pt: "T-shirt Oversized | 100% Algodão Confeccionada em algodão premium para máximo conforto. Esta t-shirt oversized oferece um corte descontraído e um estilo sem esforço. A gola canelada acrescenta um detalhe subtil, enquanto o design na parte frontal e traseira a transforma numa verdadeira peça de destaque.",
+    },
+    features: {
+      en: [
+        "200 g/m²",
+        "100% cotton",
+        "Knitted",
+        "Single Jersey",
+        "Casual oversized cut",
+        "Dropped shoulders",
+        "Ribbed crew neck",
+      ],
+      pt: [
+        "200 g/m²",
+        "100% algodão",
+        "Malha",
+        "Jersey simples",
+        "Corte casual oversized",
+        "Ombros descaídos",
+        "Gola canelada",
+      ],
+    },
     catalogImage: "/images/products/catalog/STORM-left.jpg",
-    // Diferentes variações de cor com suas próprias fotos
     colorVariants: [
       {
-        name: "White",
+        name: { en: "White", pt: "Branco" },
         hex: "#FFFFFF",
         images: {
           main: "/images/products/catalog/STORM-left.jpg",
@@ -56,7 +72,7 @@ export const products: Product[] = [
         },
       },
       {
-        name: "Beige",
+        name: { en: "Beige", pt: "Bege" },
         hex: "#F5E6D3",
         images: {
           main: "/images/products/catalog/struggle/bege/STORM_STUDIO-185.jpg",
@@ -75,21 +91,34 @@ export const products: Product[] = [
     id: "2",
     slug: "simple",
     name: "SIMPLE",
-    description:
-      "Oversized T-shirt | 100% Cotton Crafted from premium cotton for maximum comfort. This oversized tee delivers a relaxed fit and effortless style. The ribbed crew neck adds a subtle detail, while the design on both the front and back makes it a true statement piece.",
-    features: [
-      "200 g/m²",
-      "100% cotton",
-      "Knitted",
-      "Single Jersey",
-      "Casual oversized cut",
-      "Dropped shoulders",
-      "Ribbed crew neck",
-    ],
+    description: {
+      en: "Oversized T-shirt | 100% Cotton Crafted from premium cotton for maximum comfort. This oversized tee delivers a relaxed fit and effortless style. The ribbed crew neck adds a subtle detail, while the design on both the front and back makes it a true statement piece.",
+      pt: "T-shirt Oversized | 100% Algodão Confeccionada em algodão premium para máximo conforto. Esta t-shirt oversized oferece um corte descontraído e um estilo sem esforço. A gola canelada acrescenta um detalhe subtil, enquanto o design na parte frontal e traseira a transforma numa verdadeira peça de destaque.",
+    },
+    features: {
+      en: [
+        "200 g/m²",
+        "100% cotton",
+        "Knitted",
+        "Single Jersey",
+        "Casual oversized cut",
+        "Dropped shoulders",
+        "Ribbed crew neck",
+      ],
+      pt: [
+        "200 g/m²",
+        "100% algodão",
+        "Malha",
+        "Jersey simples",
+        "Corte casual oversized",
+        "Ombros descaídos",
+        "Gola canelada",
+      ],
+    },
     catalogImage: "/images/products/catalog/STORM-center.jpg",
     colorVariants: [
       {
-        name: "Bege",
+        name: { en: "Beige", pt: "Bege" },
         hex: "#F5E6D3",
         images: {
           main: "/images/products/catalog/STORM-center.jpg",
@@ -108,19 +137,34 @@ export const products: Product[] = [
     id: "3",
     slug: "how-to",
     name: "HOW TO",
-    description:
-      "Oversized T-shirt | 100% Cotton Crafted from premium cotton for maximum comfort. This oversized tee delivers a relaxed fit and effortless style. The ribbed crew neck adds a subtle detail, while the design on both the front and back makes it a true statement piece.",
-    features: [
-      "100% Premium Cotton",
-      "Oversized Fit",
-      "Ribbed Crew Neck",
-      "Creative Design",
-      "Machine Washable",
-    ],
+    description: {
+      en: "Oversized T-shirt | 100% Cotton Crafted from premium cotton for maximum comfort. This oversized tee delivers a relaxed fit and effortless style. The ribbed crew neck adds a subtle detail, while the design on both the front and back makes it a true statement piece.",
+      pt: "T-shirt Oversized | 100% Algodão Confeccionada em algodão premium para máximo conforto. Esta t-shirt oversized oferece um corte descontraído e um estilo sem esforço. A gola canelada acrescenta um detalhe subtil, enquanto o design na parte frontal e traseira a transforma numa verdadeira peça de destaque.",
+    },
+    features: {
+      en: [
+        "200 g/m²",
+        "100% cotton",
+        "Knitted",
+        "Single Jersey",
+        "Casual oversized cut",
+        "Dropped shoulders",
+        "Ribbed crew neck",
+      ],
+      pt: [
+        "200 g/m²",
+        "100% algodão",
+        "Malha",
+        "Jersey simples",
+        "Corte casual oversized",
+        "Ombros descaídos",
+        "Gola canelada",
+      ],
+    },
     catalogImage: "/images/products/catalog/STORM-right.jpg",
     colorVariants: [
       {
-        name: "White",
+        name: { en: "White", pt: "Branco" },
         hex: "#FFFFFF",
         images: {
           main: "/images/products/catalog/STORM-right.jpg",
@@ -133,7 +177,7 @@ export const products: Product[] = [
         },
       },
       {
-        name: "Black",
+        name: { en: "Black", pt: "Preto" },
         hex: "#000000",
         images: {
           main: "/images/products/catalog/STORM-right.jpg",
@@ -148,6 +192,7 @@ export const products: Product[] = [
       },
     ],
   },
+  // 👉 aqui entram os teus outros produtos exatamente como tens, só com pt/en
 ];
 
 // FUNÇÃO PARA BUSCAR PRODUTO POR SLUG

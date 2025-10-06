@@ -3,14 +3,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { products } from "@/data/products";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 
 const ProductsPage = () => {
   const t = useTranslations("products");
+  const locale = useLocale(); // ✅ idioma atual ("pt" ou "en")
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Spacer para compensar o Header fixo */}
+      {/* Espaço para o header fixo */}
       <div className="h-32" />
 
       {/* Header Section */}
@@ -33,11 +34,11 @@ const ProductsPage = () => {
             {products.map((product) => (
               <Link
                 key={product.id}
-                href={`/products/${product.slug}`}
+                // ✅ agora o link inclui o idioma atual
+                href={`/${locale}/products/${product.slug}`}
                 className="group block"
               >
-                {/* Product Image Container */}
-                <div className="relative w-full aspect-[3/4] bg-transparent overflow-hidden mb-6">
+                <div className="relative w-full aspect-[3/4] overflow-hidden mb-6">
                   <Image
                     src={product.catalogImage}
                     alt={product.name}
@@ -46,7 +47,6 @@ const ProductsPage = () => {
                   />
                 </div>
 
-                {/* Product Name */}
                 <h2 className="storm-nav text-center text-sm md:text-base tracking-[0.3em] uppercase group-hover:text-storm-red group-hover:scale-105 transition-colors duration-500">
                   {product.name}
                 </h2>
@@ -56,7 +56,6 @@ const ProductsPage = () => {
         </div>
       </div>
 
-      {/* Bottom Spacing */}
       <div className="h-32" />
     </div>
   );

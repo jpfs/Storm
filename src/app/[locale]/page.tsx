@@ -17,7 +17,7 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "https://storm.pt/images/seo/og-image.jpg", // 🔹 substitui pela tua imagem real
+        url: "https://storm.pt/images/seo/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "STORM - From Sea to Street We Ride as One",
@@ -29,7 +29,7 @@ export const metadata = {
     title: "STORM - From Sea to Street We Ride as One",
     description:
       "A marca que une todos os board sports numa comunidade global. Celebrating the life of riding on any board, any ground, in any storm.",
-    images: ["https://storm.pt/images/seo/og-image.jpg"], // 🔹 substitui pela tua imagem real
+    images: ["https://storm.pt/images/seo/og-image.jpg"],
   },
   icons: {
     icon: "/icons/favicon.ico",
