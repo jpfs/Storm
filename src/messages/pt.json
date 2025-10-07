@@ -19,7 +19,9 @@
   },
   "products": {
     "title": "PRODUTOS",
-    "description": "A coleção BRAIN STORM celebra a liberdade, o estilo e o espírito que unem todos os board sports."
+    "description": "A coleção BRAIN STORM celebra a liberdade, o estilo e o espírito que unem todos os board sports.",
+    "tshirts": "T-shirts",
+    "hats": "Chapéus"
   },
   "productDetail": {
     "backAlt": "Voltar",

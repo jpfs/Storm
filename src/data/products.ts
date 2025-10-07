@@ -24,6 +24,7 @@ export interface Product {
   };
   catalogImage: string;
   colorVariants: ColorVariant[];
+  categories: string[];
 }
 
 // 🔹 Exemplo da estrutura real — copia o teu conteúdo original dentro deste formato
@@ -86,6 +87,7 @@ export const products: Product[] = [
         },
       },
     ],
+    categories: ["tshirts"],
   },
   {
     id: "2",
@@ -132,6 +134,7 @@ export const products: Product[] = [
         },
       },
     ],
+    categories: ["store", "tshirts"],
   },
   {
     id: "3",
@@ -191,6 +194,73 @@ export const products: Product[] = [
         },
       },
     ],
+    categories: ["tshirts"],
+  },
+  {
+    id: "4",
+    slug: "storm-hat",
+    name: "Storm Hat",
+    description: {
+      en: "Oversized T-shirt | 100% Cotton Crafted from premium cotton for maximum comfort. This oversized tee delivers a relaxed fit and effortless style. The ribbed crew neck adds a subtle detail, while the design on both the front and back makes it a true statement piece.",
+      pt: "T-shirt Oversized | 100% Algodão Confeccionada em algodão premium para máximo conforto. Esta t-shirt oversized oferece um corte descontraído e um estilo sem esforço. A gola canelada acrescenta um detalhe subtil, enquanto o design na parte frontal e traseira a transforma numa verdadeira peça de destaque.",
+    },
+    features: {
+      en: [
+        "200 g/m²",
+        "100% cotton",
+        "Knitted",
+        "Single Jersey",
+        "Casual oversized cut",
+        "Dropped shoulders",
+        "Ribbed crew neck",
+      ],
+      pt: [
+        "200 g/m²",
+        "100% algodão",
+        "Malha",
+        "Jersey simples",
+        "Corte casual oversized",
+        "Ombros descaídos",
+        "Gola canelada",
+      ],
+    },
+    catalogImage: "/images/products/catalog/storm_hat/STORM_CAPS-11.jpg",
+    colorVariants: [
+      {
+        name: { en: "Brown", pt: "Castanho" },
+        hex: "#94693f",
+        images: {
+          main: "/images/products/catalog/STORM_CAPS-14.jpg",
+          gallery: [
+            "/images/products/catalog/storm_hat/STORM_CAPS-14.jpg",
+            "/images/products/catalog/storm_hat/STORM_CAPS-16.jpg",
+          ],
+        },
+      },
+      {
+        name: { en: "Green", pt: "Verde" },
+        hex: "#2b372b",
+        images: {
+          main: "/images/products/catalog/STORM_CAPS-14.jpg",
+          gallery: [
+            "/images/products/catalog/storm_hat/STORM_CAPS-19.jpg",
+            "/images/products/catalog/storm_hat/STORM_CAPS-22.jpg",
+          ],
+        },
+      },
+      {
+        name: { en: "Black", pt: "Preto" },
+        hex: "#000000",
+        images: {
+          main: "/images/products/catalog/STORM_CAPS-14.jpg",
+          gallery: [
+            "/images/products/catalog/storm_hat/STORM_CAPS-28.jpg",
+            "/images/products/catalog/storm_hat/STORM_CAPS-31.jpg",
+          ],
+        },
+      },
+    ],
+    categories: ["hats"],
   },
   // 👉 aqui entram os teus outros produtos exatamente como tens, só com pt/en
 ];

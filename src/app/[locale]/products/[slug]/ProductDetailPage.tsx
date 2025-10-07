@@ -82,8 +82,8 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
               <Image
                 src={`/icons/products/STORM_ICON_BACK_${L}.png`}
                 alt={t("backAlt")}
-                width={150}
-                height={150}
+                width={120}
+                height={120}
                 className="object-contain"
               />
             </button>
@@ -139,7 +139,7 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
           </div>
 
           {/* COLUNA 3 - DESCRIÇÃO */}
-          <div className="flex flex-col gap-4 mt-6 mr-16 relative min-h-[600px]">
+          <div className="flex flex-col gap-4 mr-16 relative min-h-[600px]">
             {/* Nome */}
             <h1 className="storm-heading text-2xl md:text-4xl">
               {product.name}
@@ -154,7 +154,7 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
             <div className="pt-0 mb-10">
               <button
                 onClick={() => setIsFeaturesOpen(!isFeaturesOpen)}
-                className="flex items-center gap-1 storm-nav text-xs hover:text-storm-red transition-colors"
+                className="flex items-center gap-1 text-[1.2rem] hover:text-storm-red transition-colors"
               >
                 <span>{t("features")}</span>
                 <span
@@ -262,8 +262,8 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
                 <Image
                   src={`/icons/products/STORM_ICON_BUY_${L}.png`}
                   alt={t("buyOnInsta")}
-                  width={250}
-                  height={250}
+                  width={200}
+                  height={200}
                   className="object-contain"
                 />
               </a>

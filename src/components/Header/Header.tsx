@@ -24,9 +24,8 @@ const Header = () => {
   ];
 
   const productSubLinks = [
-    { name: t("store"), path: "/products" },
-    { name: t("tshirts"), path: "/products" },
-    { name: t("hats"), path: "/products" },
+    { name: t("tshirts"), path: "/products#tshirts" },
+    { name: t("hats"), path: "/products#hats" },
   ];
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);

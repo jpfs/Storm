@@ -35,22 +35,30 @@ const AboutPage = () => {
         </div>
 
         {/* TÍTULO “ABOUT US” */}
-        <div className="relative w-full max-w-xl h-16 mb-10 mt-4 flex justify-center">
+        <div className="relative w-full max-w-xl h-16 mb-6 mt-4 flex justify-center">
           <Image
-            src="/images/about us/STORM_ABOUT_US_TITLE.png"
+            key={`title-${currentLocale}`} // força reload ao trocar idioma
+            src={`/images/about_us/STORM_ABOUT_US_TITLE_${
+              currentLocale === "en" ? "EN" : "PT"
+            }.png`}
             alt="About Us"
             fill
+            unoptimized
             className="object-contain"
             priority
           />
         </div>
 
-        {/* IMAGEM PRINCIPAL */}
-        <div className="relative w-full max-w-4xl aspect-[16/9] mb-16">
+        {/* IMAGEM PRINCIPAL (DIAGRAMA) */}
+        <div className="relative w-full max-w-4xl aspect-[16/9] mb-12">
           <Image
-            src="/images/about us/STORM_ABOUT_US_DIAGRAM.png"
+            key={`diagram-${currentLocale}`} // força reload ao trocar idioma
+            src={`/images/about_us/STORM_ABOUT_US_DIAGRAM_${
+              currentLocale === "en" ? "EN" : "PT"
+            }.png`}
             alt="STORM Values - A way of living"
             fill
+            unoptimized
             className="object-contain"
             priority
           />
@@ -59,9 +67,9 @@ const AboutPage = () => {
         {/* --- SECÇÃO COM GIF E TEXTO --- */}
         <section className="w-full flex flex-col items-center justify-center text-center mt-10 mb-24 px-6">
           {/* GIF */}
-          <div className="relative w-full max-w-sm aspect-[3/4] mb-10">
+          <div className="relative w-full max-w-sm aspect-[3/4] mb-20">
             <Image
-              src="/images/about us/1REELS_STORM3.gif"
+              src="/images/about_us/1REELS_STORM3.gif"
               alt="Storm Rider"
               fill
               unoptimized
