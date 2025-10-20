@@ -64,16 +64,17 @@ const AboutPage = () => {
           />
         </div>
 
-        {/* --- SECÇÃO COM GIF E TEXTO --- */}
+        {/* --- SECÇÃO COM VÍDEO E TEXTO --- */}
         <section className="w-full flex flex-col items-center justify-center text-center mt-10 mb-24 px-6">
-          {/* GIF */}
-          <div className="relative w-full max-w-sm aspect-[3/4] mb-20">
-            <Image
-              src="/images/about_us/1REELS_STORM3.gif"
-              alt="Storm Rider"
-              fill
-              unoptimized
-              className="object-cover rounded"
+          {/* VÍDEO */}
+          <div className="relative w-full max-w-sm aspect-[3/4] mb-20 overflow-hidden rounded">
+            <video
+              src="/images/about_us/1REELS_STORM3.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="object-cover w-full h-full"
             />
           </div>
 

@@ -8,29 +8,38 @@ import "../globals.css";
 export const metadata: Metadata = {
   title: "STORM - From Sea to Street We Ride as One",
   description: "A marca que une todos os board sports numa comunidade global.",
+  icons: {
+    icon: "/icons/ui/STORM_FAV_ICON.png",
+    apple: "/icons/ui/STORM_FAV_ICON.png",
+  },
 };
 
 export function generateStaticParams() {
   return [{ locale: "pt" }, { locale: "en" }];
 }
 
-export default async function LocaleLayout(props: {
+export default async function LocaleLayout({
+  children,
+  params,
+}: {
   children: React.ReactNode;
+  // importante: params é Promise
   params: Promise<{ locale: string }>;
 }) {
-  const { children, params } = props;
-  const { locale } = await params;
+  // ✅ aguarda primeiro, só depois usa as propriedades
+  const resolvedParams = await params;
+  const locale = resolvedParams?.locale ?? "pt";
 
   let messages;
   try {
     messages = (await import(`@/messages/${locale}.json`)).default;
-  } catch (error) {
+  } catch {
     notFound();
   }
 
   return (
-    <html lang={locale}>
-      <body className="min-h-screen bg-storm-white">
+    <html lang={locale} suppressHydrationWarning>
+      <body className="min-h-screen bg-storm-white" suppressHydrationWarning>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Header />
           {children}

@@ -3,11 +3,53 @@
 @tailwind utilities;
 
 /* ========================================
+   FONT IMPORTS
+   ======================================== */
+
+/* --- HAGRID --- */
+@font-face {
+  font-family: "Hagrid";
+  src: url("/fonts/hagrid/Hagrid-Text-Regular-trial.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Hagrid";
+  src: url("/fonts/hagrid/Hagrid-Text-Medium-trial.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Hagrid";
+  src: url("/fonts/hagrid/Hagrid-Text-Bold-trial.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --- FIXTURE --- */
+@font-face {
+  font-family: "Fixture";
+  src: url("/fonts/fixture/Fixture-ExpandedRegular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Fixture";
+  src: url("/fonts/fixture/Fixture-ExpandedBold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* ========================================
    STORM BRAND COLORS & VARIABLES
    ======================================== */
 
 :root {
-  /* Main Colors - Para uso em CSS custom */
+  /* Main Colors */
   --storm-black: #000000;
   --storm-white: #ffffff;
   --storm-yellow: #fefaef;
@@ -18,9 +60,7 @@
 
   /* Font Families */
   --font-hagrid: "Hagrid", sans-serif;
-  --font-gosh: "Gosh", sans-serif;
   --font-fixture: "Fixture", sans-serif;
-  --font-poppins: "Poppins", sans-serif;
 }
 
 /* ========================================
@@ -38,7 +78,7 @@ html {
 }
 
 body {
-  font-family: var(--font-poppins);
+  font-family: var(--font-fixture);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -56,13 +96,13 @@ body {
 }
 
 .storm-body {
-  font-family: var(--font-poppins);
+  font-family: var(--font-fixture);
   font-weight: 400;
   line-height: 1.6;
 }
 
 .storm-nav {
-  font-family: var(--font-fixture);
+  font-family: var(--font-hagrid);
   font-weight: 400;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -70,17 +110,11 @@ body {
 }
 
 .storm-sub-nav {
-  font-family: var(--font-fixture);
+  font-family: var(--font-hagrid);
   font-weight: 400;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   font-size: 1.25rem;
-}
-
-.storm-gosh {
-  font-family: var(--font-gosh);
-  font-weight: 700;
-  text-transform: uppercase;
 }
 
 /* ========================================
@@ -131,11 +165,10 @@ body {
 }
 
 /* ========================================
-   CUSTOM UTILITIES (if needed)
+   CUSTOM UTILITIES
    ======================================== */
 
 @layer utilities {
-  /* Custom aspect ratios se precisares */
   .aspect-3-4 {
     aspect-ratio: 3 / 4;
   }
@@ -148,7 +181,6 @@ body {
     aspect-ratio: 9 / 16;
   }
 
-  /* Custom scale on hover */
   .hover-scale-130:hover {
     transform: scale(1.3);
   }
