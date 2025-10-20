@@ -13,9 +13,7 @@ const Header = () => {
   const pathname = usePathname();
   const router = useRouter();
 
-  // Detecta o idioma atual pela rota
   const currentLocale = pathname.startsWith("/en") ? "en" : "pt";
-
   const t = useTranslations("menu");
 
   const navigationLinks = [
@@ -30,7 +28,6 @@ const Header = () => {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-  // 🔄 Troca de idioma mantendo a rota atual
   const switchLanguage = (newLocale: string) => {
     if (newLocale === currentLocale) return;
     const newPath = pathname.replace(/^\/(pt|en)/, `/${newLocale}`);
@@ -39,41 +36,105 @@ const Header = () => {
 
   return (
     <>
-      {/* Menu Button */}
+      {/* Menu Button (ESQUERDA) */}
       <button
         onClick={toggleMenu}
-        className="fixed top-8 left-8 z-[200] p-2 hover:opacity-70 transition-opacity"
+        className="fixed top-6 left-4 md:top-8 md:left-8 z-[200] flex items-center h-[34px] md:h-[46px] lg:h-[50px] hover:opacity-70 transition-opacity"
         aria-label="Toggle menu"
       >
         {isMenuOpen ? (
-          <Image src="/icons/ui/xlogo.png" alt="Close" width={50} height={50} />
+          <>
+            {/* mobile */}
+            <Image
+              src="/icons/ui/xlogo.png"
+              alt="Close"
+              width={34}
+              height={34}
+              className="block md:hidden"
+            />
+            {/* md */}
+            <Image
+              src="/icons/ui/xlogo.png"
+              alt="Close"
+              width={46}
+              height={46}
+              className="hidden md:block lg:hidden"
+            />
+            {/* lg */}
+            <Image
+              src="/icons/ui/xlogo.png"
+              alt="Close"
+              width={50}
+              height={50}
+              className="hidden lg:block"
+            />
+          </>
         ) : (
-          <Image
-            src="/icons/ui/menu_3_bar.png"
-            alt="Menu"
-            width={50}
-            height={50}
-          />
+          <>
+            {/* mobile */}
+            <Image
+              src="/icons/ui/menu_3_bar.png"
+              alt="Menu"
+              width={34}
+              height={34}
+              className="block md:hidden"
+            />
+            {/* md */}
+            <Image
+              src="/icons/ui/menu_3_bar.png"
+              alt="Menu"
+              width={46}
+              height={46}
+              className="hidden md:block lg:hidden"
+            />
+            {/* lg */}
+            <Image
+              src="/icons/ui/menu_3_bar.png"
+              alt="Menu"
+              width={50}
+              height={50}
+              className="hidden lg:block"
+            />
+          </>
         )}
       </button>
 
       {/* Center Logo */}
-      <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-[200]">
+      <div className="fixed top-3 md:top-4 left-1/2 -translate-x-1/2 z-[200]">
         <Link href={`/${currentLocale}`}>
-          <Image
-            src="/icons/ui/front_logo.png"
-            alt="STORM"
-            width={60}
-            height={60}
-            className="hover:opacity-70 transition-opacity"
-          />
+          <>
+            {/* mobile  */}
+            <Image
+              src="/icons/ui/front_logo.png"
+              alt="STORM"
+              width={46}
+              height={46}
+              className="block md:hidden hover:opacity-70 transition-opacity"
+            />
+            {/* md */}
+            <Image
+              src="/icons/ui/front_logo.png"
+              alt="STORM"
+              width={56}
+              height={56}
+              className="hidden md:block lg:hidden hover:opacity-70 transition-opacity"
+            />
+            {/* lg */}
+            <Image
+              src="/icons/ui/front_logo.png"
+              alt="STORM"
+              width={60}
+              height={60}
+              className="hidden lg:block hover:opacity-70 transition-opacity"
+            />
+          </>
         </Link>
       </div>
 
-      {/* Right Side Buttons */}
-      <div className="fixed top-8 right-8 z-[200] flex items-center gap-4">
+      {/* Right Side Buttons (DIREITA) */}
+      <div className="fixed top-6 right-4 md:top-8 md:right-8 z-[200] flex items-center h-[34px] md:h-[46px] lg:h-[50px] gap-3 md:gap-4">
         {/* Instagram & Email */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 md:gap-3">
           <a
             href="https://www.instagram.com/_storm_pt/"
             target="_blank"
@@ -81,11 +142,27 @@ const Header = () => {
             className="hover:opacity-70 transition-opacity"
             aria-label="Instagram"
           >
+            {/* 28 / 36 / 40 */}
+            <Image
+              src="/icons/ui/STORM_LOGO_INSTA.png"
+              alt="Instagram"
+              width={28}
+              height={28}
+              className="block md:hidden"
+            />
+            <Image
+              src="/icons/ui/STORM_LOGO_INSTA.png"
+              alt="Instagram"
+              width={36}
+              height={36}
+              className="hidden md:block lg:hidden"
+            />
             <Image
               src="/icons/ui/STORM_LOGO_INSTA.png"
               alt="Instagram"
               width={40}
               height={40}
+              className="hidden lg:block"
             />
           </a>
           <a
@@ -96,14 +173,29 @@ const Header = () => {
             <Image
               src="/icons/ui/STORM_LOGO_EMAIL.png"
               alt="Email"
+              width={28}
+              height={28}
+              className="block md:hidden"
+            />
+            <Image
+              src="/icons/ui/STORM_LOGO_EMAIL.png"
+              alt="Email"
+              width={36}
+              height={36}
+              className="hidden md:block lg:hidden"
+            />
+            <Image
+              src="/icons/ui/STORM_LOGO_EMAIL.png"
+              alt="Email"
               width={40}
               height={40}
+              className="hidden lg:block"
             />
           </a>
         </div>
 
-        {/* Divider */}
-        <div className="w-px h-6 bg-storm-black opacity-30" />
+        {/* Divider (hide on mobile to ganhar espaço) */}
+        <div className="hidden md:block w-px h-6 bg-storm-black opacity-30" />
 
         {/* Language Buttons */}
         <div className="flex items-center gap-2">
@@ -117,8 +209,27 @@ const Header = () => {
                 currentLocale === "pt" ? "BLACK" : "WHITE"
               }.png`}
               alt="PT"
+              width={24}
+              height={24}
+              className="block md:hidden"
+            />
+            <Image
+              src={`/icons/ui/STORM_LANG_PT_${
+                currentLocale === "pt" ? "BLACK" : "WHITE"
+              }.png`}
+              alt="PT"
+              width={30}
+              height={30}
+              className="hidden md:block lg:hidden"
+            />
+            <Image
+              src={`/icons/ui/STORM_LANG_PT_${
+                currentLocale === "pt" ? "BLACK" : "WHITE"
+              }.png`}
+              alt="PT"
               width={40}
               height={40}
+              className="hidden lg:block"
             />
           </button>
           <button
@@ -131,8 +242,27 @@ const Header = () => {
                 currentLocale === "en" ? "BLACK" : "WHITE"
               }.png`}
               alt="EN"
+              width={24}
+              height={24}
+              className="block md:hidden"
+            />
+            <Image
+              src={`/icons/ui/STORM_LANG_EN_${
+                currentLocale === "en" ? "BLACK" : "WHITE"
+              }.png`}
+              alt="EN"
+              width={30}
+              height={30}
+              className="hidden md:block lg:hidden"
+            />
+            <Image
+              src={`/icons/ui/STORM_LANG_EN_${
+                currentLocale === "en" ? "BLACK" : "WHITE"
+              }.png`}
+              alt="EN"
               width={40}
               height={40}
+              className="hidden lg:block"
             />
           </button>
         </div>
@@ -143,14 +273,14 @@ const Header = () => {
         className={`fixed top-0 left-0 h-full bg-storm-yellow transform transition-transform duration-300 ease-in-out z-[45] ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
-        style={{ width: "400px" }}
+        style={{ width: "min(86vw, 400px)" }}
       >
         <nav
           className="h-full flex flex-col"
           style={{
-            paddingLeft: "50px",
-            paddingRight: "60px",
-            paddingTop: "100px",
+            paddingLeft: "36px",
+            paddingRight: "40px",
+            paddingTop: "120px",
           }}
         >
           <div className="flex flex-col gap-8">
@@ -159,10 +289,11 @@ const Header = () => {
                 <div key={link.name} className="flex flex-col gap-2">
                   <button
                     onClick={() => setIsProductsOpen(!isProductsOpen)}
-                    className="storm-nav text-storm-black tracking-wide transition-all duration-200 text-left hover:text-storm-red cursor-pointer"
+                    className="storm-nav text-storm-black tracking-wide transition-all duration-200 text-left hover:text-storm-red cursor-pointer text-lg md:text-xl lg:text-2xl"
                   >
                     {link.name}
                   </button>
+
                   {isProductsOpen && (
                     <div className="ml-4 flex flex-col gap-2">
                       {productSubLinks.map((sublink) => (

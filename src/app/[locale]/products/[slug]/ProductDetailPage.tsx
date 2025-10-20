@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Product, ColorVariant } from "@/data/products";
@@ -22,6 +22,76 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
   const [isFeaturesOpen, setIsFeaturesOpen] = useState(false);
   const [showSizeImages, setShowSizeImages] = useState(false);
 
+  // 🔧 Refs para posicionar os ícones
+  const sizeGuideRef = useRef<HTMLDivElement>(null);
+  const colorSectionRef = useRef<HTMLDivElement>(null);
+  const [sizeGuidePos, setSizeGuidePos] = useState({ top: 0, left: 0 });
+  const [colorSectionPos, setColorSectionPos] = useState({ top: 0, left: 0 });
+
+  // 👉 Swipe (mobile)
+  const touchStartX = useRef<number | null>(null);
+  const touchStartY = useRef<number | null>(null);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    const t = e.touches[0];
+    touchStartX.current = t.clientX;
+    touchStartY.current = t.clientY;
+  };
+
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null || touchStartY.current === null) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - touchStartX.current;
+    const dy = t.clientY - touchStartY.current;
+
+    // detectar swipe horizontal significativo
+    const THRESHOLD = 40;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > THRESHOLD) {
+      if (dx < 0) {
+        handleNextImage(); // swipe left → próxima
+      } else {
+        handlePrevImage(); // swipe right → anterior
+      }
+    }
+
+    touchStartX.current = null;
+    touchStartY.current = null;
+  };
+
+  // 📐 Atualiza posição dos ícones (corrigido com delay pós-animação)
+  useEffect(() => {
+    const updatePositions = () => {
+      if (sizeGuideRef.current) {
+        const rect = sizeGuideRef.current.getBoundingClientRect();
+        setSizeGuidePos({
+          top: rect.top + window.scrollY,
+          left: rect.left + window.scrollX,
+        });
+      }
+      if (colorSectionRef.current) {
+        const rect = colorSectionRef.current.getBoundingClientRect();
+        setColorSectionPos({
+          top: rect.top + window.scrollY,
+          left: rect.left + window.scrollX,
+        });
+      }
+    };
+
+    updatePositions();
+
+    window.addEventListener("resize", updatePositions);
+    window.addEventListener("scroll", updatePositions);
+
+    // 🪄 Espera a animação das características terminar antes de recalcular
+    const timeout = setTimeout(updatePositions, 400);
+
+    return () => {
+      window.removeEventListener("resize", updatePositions);
+      window.removeEventListener("scroll", updatePositions);
+      clearTimeout(timeout);
+    };
+  }, [showSizeImages, isFeaturesOpen, locale]);
+
   useEffect(() => {
     setSelectedImageIndex(0);
   }, [selectedColor]);
@@ -29,6 +99,12 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
   const handleNextImage = () => {
     setSelectedImageIndex((prev) =>
       prev === selectedColor.images.gallery.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const handlePrevImage = () => {
+    setSelectedImageIndex((prev) =>
+      prev === 0 ? selectedColor.images.gallery.length - 1 : prev - 1
     );
   };
 
@@ -40,7 +116,7 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
     setShowSizeImages(true);
     setTimeout(() => {
       setShowSizeImages(false);
-    }, 5000);
+    }, 10000);
   };
 
   // ✅ fallback para main image caso gallery esteja vazia
@@ -58,11 +134,11 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
       <div className="h-32" />
 
       {/* Header Section */}
-      <div className="w-full flex justify-center">
+      <div className="w-full flex justify-center px-12 sm:px-10 md:px-16 pt-4 sm:pt-0">
         <div className="relative w-full max-w-3xl h-12 pb-10 mb-8">
           <Image
-            src="/images/products/catalog/STORM_COLLECTION.png"
-            alt="BRAIN STORM COLLECTION"
+            src={`/images/products/catalog/STORM_COLLECTION_${L}.png`}
+            alt={`BRAIN STORM COLLECTION ${L}`}
             fill
             className="object-contain"
             priority
@@ -92,8 +168,13 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
           {/* COLUNA 2 - IMAGEM + SETA */}
           <div className="flex items-start gap-4">
             <div className="flex flex-col items-center gap-6">
-              {/* Imagem Principal */}
-              <div className="relative w-[300px] max-h-[500px]">
+              {/* Imagem Principal (com swipe no mobile) */}
+              <div
+                className="relative w-[300px] max-h-[500px]"
+                onTouchStart={onTouchStart}
+                onTouchEnd={onTouchEnd}
+                aria-live="polite"
+              >
                 <Image
                   key={`${selectedColor.hex}-${selectedImageIndex}`}
                   src={currentImage}
@@ -106,7 +187,7 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
               </div>
 
               {/* Thumbnails */}
-              <div className="flex gap-4 justify-center">
+              <div className="flex gap-4 justify-center mb-10">
                 {galleryImages.map((image, index) => (
                   <button
                     key={`${selectedColor.hex}-thumb-${index}`}
@@ -128,10 +209,10 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
               </div>
             </div>
 
-            {/* Seta Navegação */}
+            {/* Seta Navegação (escondida no mobile) */}
             <button
               onClick={handleNextImage}
-              className="w-8 h-28 flex items-center justify-center hover:scale-110 transition-transform mt-32"
+              className="hidden md:flex w-8 h-28 items-center justify-center hover:scale-110 transition-transform mt-32"
               aria-label={t("nextImage")}
             >
               <span className="text-3xl">›</span>
@@ -139,14 +220,12 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
           </div>
 
           {/* COLUNA 3 - DESCRIÇÃO */}
-          <div className="flex flex-col gap-4 mr-16 relative min-h-[600px]">
+          <div className="flex flex-col gap-1 relative min-h-[600px] mx-6 sm:mx-10 md:mx-0 md:mr-16">
             {/* Nome */}
-            <h1 className="storm-heading text-2xl md:text-4xl">
-              {product.name}
-            </h1>
+            <h1 className="storm-nav text-2xl md:text-3xl">{product.name}</h1>
 
             {/* Descrição */}
-            <p className="storm-body text-sm leading-relaxed text-storm-gray-dark">
+            <p className="storm-body text-sm leading-relaxed text-storm-gray-dark pt-4">
               {product.description[locale]}
             </p>
 
@@ -154,7 +233,7 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
             <div className="pt-0 mb-10">
               <button
                 onClick={() => setIsFeaturesOpen(!isFeaturesOpen)}
-                className="flex items-center gap-1 text-[1.2rem] hover:text-storm-red transition-colors"
+                className="flex items-center gap-1 text-[1.2rem] hover:text-storm-red transition-colors storm-body"
               >
                 <span>{t("features")}</span>
                 <span
@@ -188,7 +267,7 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
             </div>
 
             {/* Guia de Tamanhos */}
-            <div className="pt-0">
+            <div className="pt-0" ref={sizeGuideRef}>
               <button onClick={handleSizeClick} className="w-[250px]">
                 <Image
                   src="/icons/products/sizes.png"
@@ -201,7 +280,7 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
             </div>
 
             {/* Seleção de Cor */}
-            <div className="space-y-2">
+            <div className="space-y-2" ref={colorSectionRef}>
               <div className="flex items-center gap-3">
                 {product.colorVariants.map((variant) => (
                   <button
@@ -229,30 +308,48 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
             {/* Ícones animados */}
             {showSizeImages && (
               <>
-                <div className="absolute top-[190px] right-12 animate-[slideInBounceRight_0.6s_ease-out]">
-                  <Image
-                    src={`/icons/products/STORM_ICON_NO.png`}
-                    alt="Size Guide 1"
-                    width={200}
-                    height={200}
-                    className="object-contain"
-                  />
-                </div>
+                {/* Ícone NO → fixo acima do Guia de Tamanhos */}
+                {sizeGuideRef.current && (
+                  <div
+                    className="absolute animate-[slideInBounceRight_0.6s_ease-out] pointer-events-none"
+                    style={{
+                      top: `${sizeGuideRef.current.offsetTop - 50}px`,
+                      left: `${sizeGuideRef.current.offsetLeft + 180}px`,
+                    }}
+                  >
+                    <Image
+                      src={`/icons/products/STORM_ICON_NO_${L}.png`}
+                      alt="Size Guide NO"
+                      width={200}
+                      height={200}
+                      className="object-contain"
+                    />
+                  </div>
+                )}
 
-                <div className="absolute top-[330px] left-0 animate-[slideInBounceLeft_0.6s_ease-out_0.2s_backwards]">
-                  <Image
-                    src={`/icons/products/STORM_ICON_YESS.png`}
-                    alt="Size Guide 2"
-                    width={200}
-                    height={200}
-                    className="object-contain"
-                  />
-                </div>
+                {/* Ícone YESS → fixo abaixo e à esquerda da Seleção de Cor */}
+                {colorSectionRef.current && (
+                  <div
+                    className="absolute animate-[slideInBounceLeft_0.6s_ease-out_0.2s_backwards] pointer-events-none"
+                    style={{
+                      top: `${colorSectionRef.current.offsetTop + 20}px`,
+                      left: `${colorSectionRef.current.offsetLeft - 10}px`,
+                    }}
+                  >
+                    <Image
+                      src={`/icons/products/STORM_ICON_YESS_${L}.png`}
+                      alt="Color Section YESS"
+                      width={200}
+                      height={200}
+                      className="object-contain"
+                    />
+                  </div>
+                )}
               </>
             )}
 
             {/* Botão Instagram */}
-            <div className="pt-6">
+            <div className="pt-10">
               <a
                 href="https://www.instagram.com/_storm_pt/"
                 target="_blank"
