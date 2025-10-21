@@ -46,7 +46,7 @@ const Header = () => {
           <>
             {/* mobile */}
             <Image
-              src="/icons/ui/xlogo.png"
+              src="/icons/ui/exlogo.png"
               alt="Close"
               width={34}
               height={34}
@@ -54,7 +54,7 @@ const Header = () => {
             />
             {/* md */}
             <Image
-              src="/icons/ui/xlogo.png"
+              src="/icons/ui/exlogo.png"
               alt="Close"
               width={46}
               height={46}
@@ -62,7 +62,7 @@ const Header = () => {
             />
             {/* lg */}
             <Image
-              src="/icons/ui/xlogo.png"
+              src="/icons/ui/exlogo.png"
               alt="Close"
               width={50}
               height={50}
