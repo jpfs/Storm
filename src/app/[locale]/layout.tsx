@@ -9,8 +9,8 @@ export const metadata: Metadata = {
   title: "STORM - From Sea to Street We Ride as One",
   description: "A marca que une todos os board sports numa comunidade global.",
   icons: {
-    icon: "/STORM_FAV_ICON.png",
-    apple: "/STORM_FAV_ICON.png",
+    icon: "/FAV_ICON.png",
+    apple: "/FAV_ICON.png",
   },
 };
 

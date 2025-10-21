@@ -32,11 +32,10 @@ export const metadata = {
     images: ["https://storm.pt/images/seo/og-image.jpg"],
   },
   icons: {
-    icon: "/icons/favicon.ico",
-    shortcut: "/icons/favicon.ico",
-    apple: "/icons/apple-touch-icon.png",
+    shortcut: "/FAV_ICON.png",
+    icon: "/FAV_ICON.png",
+    apple: "/FAV_ICON.png",
   },
-  manifest: "/manifest.json",
 };
 
 export default function Page() {
