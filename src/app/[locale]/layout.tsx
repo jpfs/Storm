@@ -3,15 +3,14 @@ import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
+import Script from "next/script";
+import GA from "@/components/GA";
 import "../globals.css";
 
 export const metadata: Metadata = {
   title: "STORM - From Sea to Street We Ride as One",
   description: "A marca que une todos os board sports numa comunidade global.",
-  icons: {
-    icon: "/FAV_ICON.png",
-    apple: "/FAV_ICON.png",
-  },
+  icons: { icon: "/FAV_ICON.png", apple: "/FAV_ICON.png" },
 };
 
 export function generateStaticParams() {
@@ -23,10 +22,8 @@ export default async function LocaleLayout({
   params,
 }: {
   children: React.ReactNode;
-  // importante: params é Promise
   params: Promise<{ locale: string }>;
 }) {
-  // ✅ aguarda primeiro, só depois usa as propriedades
   const resolvedParams = await params;
   const locale = resolvedParams?.locale ?? "pt";
 
@@ -37,11 +34,37 @@ export default async function LocaleLayout({
     notFound();
   }
 
+  const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+
   return (
     <html lang={locale} suppressHydrationWarning>
+      <head>
+        {GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                window.gtag = window.gtag || function(){dataLayer.push(arguments);};
+                gtag('js', new Date());
+                gtag('config', '${GA_ID}', {
+                  page_path: window.location.pathname + window.location.search,
+                  anonymize_ip: true
+                });
+              `}
+            </Script>
+          </>
+        )}
+      </head>
       <body className="min-h-screen bg-storm-white" suppressHydrationWarning>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Header />
+          {/* pageviews em navegação cliente */}
+          <GA />
           {children}
           <Footer />
         </NextIntlClientProvider>
