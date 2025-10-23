@@ -2,11 +2,12 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const AboutPage = () => {
   const t = useTranslations("about");
   const pathname = usePathname();
+  const router = useRouter();
   const currentLocale = pathname.startsWith("/en") ? "en" : "pt";
 
   return (
@@ -19,7 +20,7 @@ const AboutPage = () => {
         {/* BOTÃO VOLTAR */}
         <div className="absolute top-36 left-8 hidden lg:block">
           <button
-            onClick={() => window.history.back()}
+            onClick={() => router.back()}
             className="hover:scale-110 transition-transform"
           >
             <Image
@@ -35,9 +36,9 @@ const AboutPage = () => {
         </div>
 
         {/* TÍTULO “ABOUT US” */}
-        <div className="relative w-full max-w-xl h-16 mb-6 mt-4 flex justify-center">
+        <div className="relative w-[55%] sm:w-[75%] md:max-w-xl h-16 mb-6 mt-4 flex justify-center">
           <Image
-            key={`title-${currentLocale}`} // força reload ao trocar idioma
+            key={`title-${currentLocale}`}
             src={`/images/about_us/STORM_ABOUT_US_TITLE_${
               currentLocale === "en" ? "EN" : "PT"
             }.png`}

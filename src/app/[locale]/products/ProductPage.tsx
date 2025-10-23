@@ -107,7 +107,7 @@ const ProductsPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Espaço para o header fixo */}
-      <div className="h-32" />
+      <div className="h-32 md:h-44" />
 
       {/* Header Section */}
       <div className="w-full flex justify-center px-12 sm:px-10 md:px-16 pt-4 sm:pt-0">

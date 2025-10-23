@@ -132,7 +132,7 @@ const Header = () => {
       </div>
 
       {/* Right Side Buttons (DIREITA) */}
-      <div className="fixed top-6 right-4 md:top-8 md:right-8 z-[200] flex items-center h-[34px] md:h-[46px] lg:h-[50px] gap-3 md:gap-4">
+      <div className="fixed top-6 right-4 md:top-8 md:right-8 z-[200] flex items-center h-[34px] md:h-[46px] lg:h-[50px] gap-3 md:gap-4 pointer-events-auto">
         {/* Instagram & Email */}
         <div className="flex items-center gap-2 md:gap-3">
           <a
@@ -165,8 +165,16 @@ const Header = () => {
               className="hidden lg:block"
             />
           </a>
-          <a
-            href="mailto:geral.storm.pt@gmail.com"
+          <button
+            type="button"
+            onClick={() => {
+              const subject = encodeURIComponent("Contacto STORM");
+              const body = encodeURIComponent("Olá STORM, ");
+              window.open(
+                `mailto:geral@stormclothing.pt?subject=${subject}&body=${body}`,
+                "_self"
+              );
+            }}
             className="hover:opacity-70 transition-opacity"
             aria-label="Email"
           >
@@ -191,7 +199,7 @@ const Header = () => {
               height={40}
               className="hidden lg:block"
             />
-          </a>
+          </button>
         </div>
 
         {/* Divider (hide on mobile to ganhar espaço) */}

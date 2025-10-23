@@ -33,7 +33,6 @@ export const metadata = {
     shortcut: "/icons/favicon.ico",
     apple: "/icons/apple-touch-icon.png",
   },
-  manifest: "/manifest.json",
 };
 
 export default function Page() {

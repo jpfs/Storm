@@ -34,8 +34,8 @@ export const products: Product[] = [
     slug: "struggle",
     name: "STRUGGLE",
     description: {
-      en: "Oversized T-shirt | 100% Cotton Crafted from premium cotton for maximum comfort. This oversized tee delivers a relaxed fit and effortless style. The ribbed crew neck adds a subtle detail, while the design on both the front and back makes it a true statement piece.",
-      pt: "T-shirt Oversized | 100% Algodão Confeccionada em algodão premium para máximo conforto. Esta t-shirt oversized oferece um corte descontraído e um estilo sem esforço. A gola canelada acrescenta um detalhe subtil, enquanto o design na parte frontal e traseira a transforma numa verdadeira peça de destaque.",
+      en: "<strong> Oversized T-shirt | 100% Cotton </strong> <p>Crafted from premium cotton for maximum comfort. This oversized tee delivers a relaxed fit and effortless style. The ribbed crew neck adds a subtle detail, while the design on both the front and back makes it a true statement piece.",
+      pt: "<strong> T-shirt Oversized | 100% Algodão </strong> <p>Confeccionada em algodão premium para máximo conforto. Esta t-shirt oversized oferece um corte descontraído e um estilo sem esforço. A gola canelada acrescenta um detalhe subtil, enquanto o design na parte frontal e traseira a transforma numa verdadeira peça de destaque.",
     },
     features: {
       en: [
@@ -94,8 +94,8 @@ export const products: Product[] = [
     slug: "simple",
     name: "SIMPLE",
     description: {
-      en: "Oversized T-shirt | 100% Cotton Crafted from premium cotton for maximum comfort. This oversized tee delivers a relaxed fit and effortless style. The ribbed crew neck adds a subtle detail, while the design on both the front and back makes it a true statement piece.",
-      pt: "T-shirt Oversized | 100% Algodão Confeccionada em algodão premium para máximo conforto. Esta t-shirt oversized oferece um corte descontraído e um estilo sem esforço. A gola canelada acrescenta um detalhe subtil, enquanto o design na parte frontal e traseira a transforma numa verdadeira peça de destaque.",
+      en: "<strong> Oversized T-shirt | 100% Cotton </strong> <p> Crafted from premium cotton for maximum comfort. This oversized tee delivers a relaxed fit and effortless style. The ribbed crew neck adds a subtle detail, while the design on both the front and back makes it a true statement piece.",
+      pt: "<strong> T-shirt Oversized | 100% Algodão </strong> <p> Confeccionada em algodão premium para máximo conforto. Esta t-shirt oversized oferece um corte descontraído e um estilo sem esforço. A gola canelada acrescenta um detalhe subtil, enquanto o design na parte frontal e traseira a transforma numa verdadeira peça de destaque.",
     },
     features: {
       en: [
@@ -141,8 +141,8 @@ export const products: Product[] = [
     slug: "how-to",
     name: "HOW TO",
     description: {
-      en: "Oversized T-shirt | 100% Cotton Crafted from premium cotton for maximum comfort. This oversized tee delivers a relaxed fit and effortless style. The ribbed crew neck adds a subtle detail, while the design on both the front and back makes it a true statement piece.",
-      pt: "T-shirt Oversized | 100% Algodão Confeccionada em algodão premium para máximo conforto. Esta t-shirt oversized oferece um corte descontraído e um estilo sem esforço. A gola canelada acrescenta um detalhe subtil, enquanto o design na parte frontal e traseira a transforma numa verdadeira peça de destaque.",
+      en: "<strong> Oversized T-shirt | 100% Cotton </strong> <p> Crafted from premium cotton for maximum comfort. This oversized tee delivers a relaxed fit and effortless style. The ribbed crew neck adds a subtle detail, while the design on both the front and back makes it a true statement piece.",
+      pt: "<strong> T-shirt Oversized | 100% Algodão </strong> <p> Confeccionada em algodão premium para máximo conforto. Esta t-shirt oversized oferece um corte descontraído e um estilo sem esforço. A gola canelada acrescenta um detalhe subtil, enquanto o design na parte frontal e traseira a transforma numa verdadeira peça de destaque.",
     },
     features: {
       en: [
@@ -167,19 +167,6 @@ export const products: Product[] = [
     catalogImage: "/images/products/catalog/STORM-right.jpg",
     colorVariants: [
       {
-        name: { en: "White", pt: "Branco" },
-        hex: "#FFFFFF",
-        images: {
-          main: "/images/products/catalog/STORM-right.jpg",
-          gallery: [
-            "/images/products/catalog/how to/white/STORM_STUDIO-193.jpg",
-            "/images/products/catalog/how to/white/STORM_STUDIO-193 2.jpg",
-            "/images/products/catalog/how to/white/STORM_STUDIO-109.jpg",
-            "/images/products/catalog/how to/white/STORM_STUDIO-119.jpg",
-          ],
-        },
-      },
-      {
         name: { en: "Black", pt: "Preto" },
         hex: "#000000",
         images: {
@@ -193,6 +180,19 @@ export const products: Product[] = [
           ],
         },
       },
+      {
+        name: { en: "White", pt: "Branco" },
+        hex: "#FFFFFF",
+        images: {
+          main: "/images/products/catalog/STORM-right.jpg",
+          gallery: [
+            "/images/products/catalog/how to/white/STORM_STUDIO-193.jpg",
+            "/images/products/catalog/how to/white/STORM_STUDIO-193 2.jpg",
+            "/images/products/catalog/how to/white/STORM_STUDIO-109.jpg",
+            "/images/products/catalog/how to/white/STORM_STUDIO-119.jpg",
+          ],
+        },
+      },
     ],
     categories: ["tshirts"],
   },
@@ -201,8 +201,8 @@ export const products: Product[] = [
     slug: "storm-hat",
     name: "Storm Hat",
     description: {
-      en: "Bombazine Cap | 100% Cotton A modern take on a classic, this Cap is crafted from premium bombazine corduroy for a soft, textured feel. With subtle embroidery details—an icon at the front and our logo at the back—it blends timeless style with a contemporary edge. Available in three versatile colors.",
-      pt: "Boné Bombazine | 100% Algodão Uma releitura moderna de um clássico, o Boné é feito em bombazine de algodão para um toque macio e textura marcante. Com bordados sutis — um ícone na frente e o nosso logo como detalhe nas costas — combina estilo atemporal com uma abordagem contemporânea. Disponível em três cores versáteis.",
+      en: "<strong> Bombazine Cap | 100% Cotton </strong> <p> A modern take on a classic, this Cap is crafted from premium bombazine corduroy for a soft, textured feel. With subtle embroidery details—an icon at the front and our logo at the back—it blends timeless style with a contemporary edge. Available in three versatile colors.",
+      pt: "<strong> Boné Bombazine | 100% Algodão </strong> <p> Uma releitura moderna de um clássico, o Boné é feito em bombazine de algodão para um toque macio e textura marcante. Com bordados sutis — um ícone na frente e o nosso logo como detalhe nas costas — combina estilo atemporal com uma abordagem contemporânea. Disponível em três cores versáteis.",
     },
     features: {
       en: [

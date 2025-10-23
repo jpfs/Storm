@@ -14,7 +14,7 @@ const Footer = () => {
             alt="STORM Logo"
             width={160}
             height={160}
-            className="w-32 md:w-40 opacity-100 group-hover:opacity-60 transition-opacity duration-300"
+            className="w-24 md:w-40 opacity-100 group-hover:opacity-60 transition-opacity duration-300"
           />
         </Link>
       </div>

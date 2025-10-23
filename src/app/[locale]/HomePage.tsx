@@ -6,9 +6,9 @@ const HomePage = () => {
   return (
     <main className="min-h-screen bg-white flex items-center justify-center relative overflow-hidden p-4 md:p-8">
       {/* MOBILE: container fluido | DESKTOP: proporção fixa */}
-      <div className="relative w-full h-[82vh] md:h-auto md:max-w-[1200px] md:aspect-[16/10] flex items-center justify-center">
+      <div className="relative w-full h-[60vh] md:h-auto md:max-w-[1200px] md:aspect-[16/10] flex items-start justify-center pt-20 md:pt-32">
         {/* WRAPPER central: GIF + setas escalam juntos */}
-        <div className="relative w-[58%] md:w-[23%] aspect-[9/16]">
+        <div className="relative w-[45%] md:w-[23%] aspect-[9/16]">
           {/* GIF central — sem eventos para não cortar hover das setas */}
           <div className="absolute inset-0 bg-black rounded-sm overflow-hidden z-20 pointer-events-none">
             <Image
@@ -46,25 +46,25 @@ function Arrow({
       tl: {
         anchor: "top-4 right-44",
         offset:
-          "-translate-x-[34%] -translate-y-[34%] md:-translate-x-[50%] md:-translate-y-[46%]",
+          "-translate-x-[15%] -translate-y-[34%] md:-translate-x-[55%] md:-translate-y-[46%]",
         size: "w-[54%] md:w-[60%]",
       },
       tr: {
         anchor: "top-0 left-44",
         offset:
-          "translate-x-[20%] -translate-y-[65%] md:translate-x-[50%] md:-translate-y-[46%]",
+          "translate-x-[10%] -translate-y-[65%] md:translate-x-[55%] md:-translate-y-[46%]",
         size: "w-[54%] md:w-[60%]",
       },
       bl: {
         anchor: "bottom-0 right-36",
         offset:
-          "-translate-x-[38%] translate-y-[10%] md:-translate-x-[50%] md:translate-y-[48%]",
+          "-translate-x-[25%] translate-y-[10%] md:-translate-x-[60%] md:translate-y-[48%]",
         size: "w-[54%] md:w-[60%]",
       },
       br: {
         anchor: "bottom-0 left-44",
         offset:
-          "translate-x-[18%] translate-y-[36%] md:translate-x-[50%] md:translate-y-[48%]",
+          "translate-x-[10%] translate-y-[36%] md:translate-x-[55%] md:translate-y-[48%]",
         size: "w-[54%] md:w-[60%]",
       },
     };

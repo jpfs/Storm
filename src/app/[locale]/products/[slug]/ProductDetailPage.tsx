@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Product, ColorVariant } from "@/data/products";
 import { useTranslations } from "next-intl";
 
@@ -14,6 +14,7 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
   const pathname = usePathname();
   const locale: "pt" | "en" = pathname.startsWith("/en") ? "en" : "pt";
   const t = useTranslations("productDetail");
+  const router = useRouter();
 
   const [selectedColor, setSelectedColor] = useState<ColorVariant>(
     product.colorVariants[0]
@@ -131,7 +132,7 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
   return (
     <div className="min-h-screen bg-white relative">
       {/* Spacer para o Header */}
-      <div className="h-32" />
+      <div className="h-32 md:h-44" />
 
       {/* Header Section */}
       <div className="w-full flex justify-center px-12 sm:px-10 md:px-16 pt-4 sm:pt-0">
@@ -150,9 +151,9 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
       <div className="max-w-screen-2xl mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 justify-items-center items-start">
           {/* COLUNA 1 - BOTÃO BACK */}
-          <div className="hidden lg:flex items-end justify-start w-full pl-6 min-h-[450px]">
+          <div className="hidden lg:flex items-start justify-start w-full pl-6 min-h-[450px]">
             <button
-              onClick={() => window.history.back()}
+              onClick={() => router.back()}
               className="hover:scale-110 transition-transform"
             >
               <Image
@@ -222,15 +223,16 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
           {/* COLUNA 3 - DESCRIÇÃO */}
           <div className="flex flex-col gap-1 relative min-h-[600px] mx-6 sm:mx-10 md:mx-0 md:mr-16">
             {/* Nome */}
-            <h1 className="storm-nav text-2xl md:text-3xl">{product.name}</h1>
+            <h1 className="storm-title text-2xl md:text-3xl">{product.name}</h1>
 
             {/* Descrição */}
-            <p className="storm-body text-sm leading-relaxed text-storm-gray-dark pt-4">
-              {product.description[locale]}
-            </p>
+            <div
+              className="storm-body text-sm leading-relaxed text-storm-gray-dark pt-4"
+              dangerouslySetInnerHTML={{ __html: product.description[locale] }}
+            />
 
             {/* Features */}
-            <div className="pt-0 mb-10">
+            <div className="pt-0 mb-8">
               <button
                 onClick={() => setIsFeaturesOpen(!isFeaturesOpen)}
                 className="flex items-center gap-1 text-[1.2rem] hover:text-storm-red transition-colors storm-body"
