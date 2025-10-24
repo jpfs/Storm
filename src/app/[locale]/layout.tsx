@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
@@ -62,9 +63,11 @@ export default async function LocaleLayout({
       </head>
       <body className="min-h-screen bg-storm-white" suppressHydrationWarning>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <Header />
-          {/* pageviews em navegação cliente */}
-          <GA />
+          <Suspense fallback={null}>
+            <Header />
+            <GA />
+          </Suspense>
+
           {children}
           <Footer />
         </NextIntlClientProvider>
