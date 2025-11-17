@@ -39,7 +39,7 @@ const Header = () => {
       {/* Menu Button (ESQUERDA) */}
       <button
         onClick={toggleMenu}
-        className="fixed top-6 left-4 md:top-8 md:left-8 z-[200] flex items-center h-[34px] md:h-[46px] lg:h-[50px] hover:opacity-70 transition-opacity"
+        className="fixed top-6 left-4 md:top-8 md:left-8 z-[400] flex items-center h-[34px] md:h-[46px] lg:h-[50px] hover:opacity-70 transition-opacity"
         aria-label="Toggle menu"
       >
         {isMenuOpen ? (
@@ -103,7 +103,6 @@ const Header = () => {
       <div className="fixed top-3 md:top-4 left-1/2 -translate-x-1/2 z-[200]">
         <Link href={`/${currentLocale}`}>
           <>
-            {/* mobile  */}
             <Image
               src="/icons/ui/front_logo.png"
               alt="STORM"
@@ -111,7 +110,6 @@ const Header = () => {
               height={46}
               className="block md:hidden hover:opacity-70 transition-opacity"
             />
-            {/* md */}
             <Image
               src="/icons/ui/front_logo.png"
               alt="STORM"
@@ -119,7 +117,6 @@ const Header = () => {
               height={56}
               className="hidden md:block lg:hidden hover:opacity-70 transition-opacity"
             />
-            {/* lg */}
             <Image
               src="/icons/ui/front_logo.png"
               alt="STORM"
@@ -131,8 +128,8 @@ const Header = () => {
         </Link>
       </div>
 
-      {/* Right Side Buttons (DIREITA) */}
-      <div className="fixed top-6 right-4 md:top-8 md:right-8 z-[200] flex items-center h-[34px] md:h-[46px] lg:h-[50px] gap-3 md:gap-4 pointer-events-auto">
+      {/* Right Side Buttons */}
+      <div className="fixed top-6 right-4 md:top-8 md:right-8 z-[200] flex items-center h-[34px] md:h-[46px] lg:h-[50px] gap-3 md:gap-4">
         {/* Instagram & Email */}
         <div className="flex items-center gap-2 md:gap-3">
           <a
@@ -142,7 +139,6 @@ const Header = () => {
             className="hover:opacity-70 transition-opacity"
             aria-label="Instagram"
           >
-            {/* 28 / 36 / 40 */}
             <Image
               src="/icons/ui/STORM_LOGO_INSTA.png"
               alt="Instagram"
@@ -165,6 +161,7 @@ const Header = () => {
               className="hidden lg:block"
             />
           </a>
+
           <button
             type="button"
             onClick={() => {
@@ -202,7 +199,7 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Divider (hide on mobile to ganhar espaço) */}
+        {/* Divider */}
         <div className="hidden md:block w-px h-6 bg-storm-black opacity-30" />
 
         {/* Language Buttons */}
@@ -240,6 +237,7 @@ const Header = () => {
               className="hidden lg:block"
             />
           </button>
+
           <button
             onClick={() => switchLanguage("en")}
             className="hover:opacity-70 transition-opacity"
@@ -278,7 +276,7 @@ const Header = () => {
 
       {/* Sidebar Menu */}
       <div
-        className={`fixed top-0 left-0 h-full bg-storm-yellow transform transition-transform duration-300 ease-in-out z-[45] ${
+        className={`fixed top-0 left-0 h-full bg-storm-yellow transform transition-transform duration-300 ease-in-out z-[300] ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
         style={{ width: "min(86vw, 400px)" }}
@@ -339,7 +337,7 @@ const Header = () => {
       {/* Overlay */}
       {isMenuOpen && (
         <div
-          className="fixed inset-0 bg-storm-black bg-opacity-50 z-[30]"
+          className="fixed inset-0 bg-storm-black bg-opacity-50 z-[250]"
           onClick={toggleMenu}
         />
       )}

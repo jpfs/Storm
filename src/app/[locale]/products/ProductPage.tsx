@@ -74,7 +74,7 @@ const ProductsPage = () => {
             />
           </div>
         ) : (
-          <h2 className="storm-nav text-center text-lg md:text-xl uppercase tracking-[0.3em]">
+          <h2 className="storm-body text-center text-lg md:text-xl uppercase tracking-[0.3em]">
             {title}
           </h2>
         )}
@@ -94,7 +94,7 @@ const ProductsPage = () => {
                   className="object-contain group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
-              <h3 className="storm-nav text-center text-sm md:text-base tracking-[0.3em] uppercase group-hover:text-storm-red transition-colors duration-300">
+              <h3 className="storm-body text-center text-sm md:text-base tracking-[0.3em] uppercase group-hover:text-storm-red transition-colors duration-300">
                 {product.name}
               </h3>
             </Link>

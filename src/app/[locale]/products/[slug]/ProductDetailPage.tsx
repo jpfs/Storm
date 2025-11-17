@@ -29,7 +29,7 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
   const [sizeGuidePos, setSizeGuidePos] = useState({ top: 0, left: 0 });
   const [colorSectionPos, setColorSectionPos] = useState({ top: 0, left: 0 });
 
-  // 👉 Swipe (mobile)
+  // 👉 Swipe (mobile) na imagem principal
   const touchStartX = useRef<number | null>(null);
   const touchStartY = useRef<number | null>(null);
 
@@ -117,7 +117,7 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
     setShowSizeImages(true);
     setTimeout(() => {
       setShowSizeImages(false);
-    }, 10000);
+    }, 4000);
   };
 
   // ✅ fallback para main image caso gallery esteja vazia
@@ -187,26 +187,28 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
                 />
               </div>
 
-              {/* Thumbnails */}
-              <div className="flex gap-4 justify-center mb-10">
-                {galleryImages.map((image, index) => (
-                  <button
-                    key={`${selectedColor.hex}-thumb-${index}`}
-                    onClick={() => setSelectedImageIndex(index)}
-                    className={`relative w-16 h-20 transition-all duration-200 ${
-                      selectedImageIndex === index
-                        ? "opacity-100 border-2 border-storm-black scale-105"
-                        : "opacity-60 border border-transparent"
-                    } hover:opacity-100 hover:scale-105`}
-                  >
-                    <Image
-                      src={image}
-                      alt={`View ${index + 1}`}
-                      fill
-                      className="object-contain"
-                    />
-                  </button>
-                ))}
+              {/* Thumbnails – swipe only no mobile */}
+              <div className="w-full flex justify-center mb-10">
+                <div className="flex gap-4 overflow-x-auto max-w-[300px] px-1 md:overflow-visible md:max-w-none md:justify-center">
+                  {galleryImages.map((image, index) => (
+                    <button
+                      key={`${selectedColor.hex}-thumb-${index}`}
+                      onClick={() => setSelectedImageIndex(index)}
+                      className={`relative w-20 aspect-square shrink-0 overflow-hidden transition-all duration-200 ${
+                        selectedImageIndex === index
+                          ? "opacity-100 border-2 border-storm-black scale-105"
+                          : "opacity-60 border border-transparent"
+                      } hover:opacity-100 hover:scale-105`}
+                    >
+                      <Image
+                        src={image}
+                        alt={`View ${index + 1}`}
+                        fill
+                        className="object-cover"
+                      />
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -322,9 +324,10 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
                     <Image
                       src={`/icons/products/STORM_ICON_NO_${L}.png`}
                       alt="Size Guide NO"
-                      width={200}
-                      height={200}
-                      className="object-contain"
+                      width={800}
+                      height={800}
+                      className="object-contain w-full max-w-[340px] mx-auto md:max-w-[200px]"
+                      priority
                     />
                   </div>
                 )}

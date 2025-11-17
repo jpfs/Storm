@@ -199,10 +199,10 @@ export const products: Product[] = [
   {
     id: "4",
     slug: "storm-hat",
-    name: "Storm Hat",
+    name: "STORM HAT",
     description: {
       en: "<strong> Bombazine Cap | 100% Cotton </strong> <p> A modern take on a classic, this Cap is crafted from premium bombazine corduroy for a soft, textured feel. With subtle embroidery details—an icon at the front and our logo at the back—it blends timeless style with a contemporary edge. Available in three versatile colors.",
-      pt: "<strong> Boné Bombazine | 100% Algodão </strong> <p> Uma releitura moderna de um clássico, o Boné é feito em bombazine de algodão para um toque macio e textura marcante. Com bordados sutis — um ícone na frente e o nosso logo como detalhe nas costas — combina estilo atemporal com uma abordagem contemporânea. Disponível em três cores versáteis.",
+      pt: "<strong> Boné Bombazine | 100% Algodão </strong> <p> Uma releitura moderna de um clássico, o Boné é feito em bombazine de algodão para um toque macio e textura marcante. Com bordados subtis, um ícone na frente e o nosso logo como detalhe nas costas — combina estilo atemporal com uma abordagem contemporânea. Disponível em três cores versáteis.",
     },
     features: {
       en: [
