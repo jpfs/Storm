@@ -4,7 +4,8 @@
     "about": "ABOUT US",
     "store": "Shop",
     "tshirts": "T-Shirts",
-    "hats": "Hats"
+    "hats": "Caps",
+    "hoodies": "Hoodies"
   },
   "home": {
     "topLeft": "100% COTTON",
@@ -21,7 +22,8 @@
     "title": "PRODUCTS",
     "description": "The BRAIN STORM collection celebrates the freedom, style, and spirit that unite all board sports.",
     "tshirts": "T-shirts",
-    "hats": "Hats"
+    "hats": "Caps",
+    "hoodies": "Hoodies"
   },
   "productDetail": {
     "backAlt": "Go Back",

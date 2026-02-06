@@ -128,7 +128,6 @@ export const products: Product[] = [
             "/images/products/catalog/simple/STORM_OUT_25-09.jpg",
             "/images/products/catalog/simple/STORM_OUT_25-13.jpg",
             "/images/products/catalog/simple/STORM_OUT_25-12.jpg",
-            "/images/products/catalog/simple/STORM_STUDIO-28.jpg",
             "/images/products/catalog/simple/STORM_STUDIO-36.jpg",
           ],
         },
@@ -198,8 +197,8 @@ export const products: Product[] = [
   },
   {
     id: "4",
-    slug: "storm-hat",
-    name: "STORM HAT",
+    slug: "Storm-cap",
+    name: "Storm Cap",
     description: {
       en: "<strong> Bombazine Cap | 100% Cotton </strong> <p> A modern take on a classic, this Cap is crafted from premium bombazine corduroy for a soft, textured feel. With subtle embroidery details—an icon at the front and our logo at the back—it blends timeless style with a contemporary edge. Available in three versatile colors.",
       pt: "<strong> Boné Bombazine | 100% Algodão </strong> <p> Uma releitura moderna de um clássico, o Boné é feito em bombazine de algodão para um toque macio e textura marcante. Com bordados subtis, um ícone na frente e o nosso logo como detalhe nas costas — combina estilo atemporal com uma abordagem contemporânea. Disponível em três cores versáteis.",
@@ -259,6 +258,90 @@ export const products: Product[] = [
       },
     ],
     categories: ["hats"],
+  },
+  {
+    id: "5",
+    slug: "Struggle-hoodie",
+    name: "Struggle",
+    description: {
+      en: "<strong> Oversized Hoodie | 80% Cotton </strong> <p> <strong> 20% Recycled Polyester </strong> <p>Oversized hoodie sweatshirt with a relaxed fit. Features a cross-over neckline, 2x1 ribbed cuffs and hem with elastane, and a kangaroo pocket. Designed with prints on the front and back.",
+      pt: "<strong>Sweatshirt com Capuz Oversized | 80% Algodão</strong> <p> 20% Poliéster Reciclado</strong> <p>Sweatshirt com capuz oversized de corte descontraído. Possui decote cruzado, punhos e bainha canelados 2x1 com elastano e bolso canguru. Estampas na frente e nas costas.</p>",
+    },
+    features: {
+      en: [
+        "320 g/m²",
+        "80% Cotton",
+        "20% Recycled Polyester",
+        "Casual oversized cut",
+        "Dropped shoulders",
+      ],
+      pt: [
+        "320 g/m²",
+        "80% algodão",
+        "20% poliéster reciclado",
+        "Estilo casual oversized",
+        "Ombros descaídos",
+      ],
+    },
+    catalogImage: "/images/products/catalog/hoodie_struggle/CAPA_BEGE.jpg",
+    colorVariants: [
+      {
+        name: { en: "Bege", pt: "Beige" },
+        hex: "#FEFAEF",
+        images: {
+          main: "/images/products/catalog/hoodie_struggle/CAPA_BEGE.jpg",
+          gallery: [
+            "/images/products/catalog/hoodie_struggle/STORM_STUDIO-109.1.jpg",
+            "/images/products/catalog/hoodie_struggle/STORM_STUDIO-109.2.jpg",
+            "/images/products/catalog/hoodie_struggle/STORM_STUDIO-109.3.jpg",
+            "/images/products/catalog/hoodie_struggle/STORM_STUDIO-109.5.jpg",
+          ],
+        },
+      },
+    ],
+    categories: ["store", "hoodies"],
+  },
+  {
+    id: "6",
+    slug: "Simple-hoodie",
+    name: "Simple",
+    description: {
+      en: "<strong> Oversized Hoodie | 80% Cotton </strong> <p> <strong> 20% Recycled Polyester </strong> <p>Oversized hoodie sweatshirt with a relaxed fit. Features a cross-over neckline, 2x1 ribbed cuffs and hem with elastane, and a kangaroo pocket. Designed with a simple logo embroidered on the chest and an embroidered detail on the sleeve.",
+      pt: "<strong>Sweatshirt com Capuz Oversized | 80% Algodão</strong> <p> 20% Poliéster Reciclado</strong> <p>Sweatshirt hoodie oversized com corte descontraído. Apresenta decote cruzado, punhos e bainha em canelado 2x1 com elastano, e bolso canguru. Design simples com logótipo bordado no peito e detalhe de raio bordado na manga.</p>",
+    },
+    features: {
+      en: [
+        "320 g/m²",
+        "80% Cotton",
+        "20% Recycled Polyester",
+        "Casual oversized cut",
+        "Dropped shoulders",
+      ],
+      pt: [
+        "320 g/m²",
+        "80% algodão",
+        "20% poliéster reciclado",
+        "Estilo casual oversized",
+        "Ombros descaídos",
+      ],
+    },
+    catalogImage: "/images/products/catalog/hoodie_simple/1_CAPA_BLACK.jpg",
+    colorVariants: [
+      {
+        name: { en: "Black", pt: "Preto" },
+        hex: "#000000",
+        images: {
+          main: "/images/products/catalog/hoodie_simple/1_CAPA_BLACK.jpg",
+          gallery: [
+            "/images/products/catalog/hoodie_simple/1_CAPA_BLACK.jpg",
+            "/images/products/catalog/hoodie_simple/STORM_STUDIO-108.1.jpg",
+            "/images/products/catalog/hoodie_simple/STORM_STUDIO-108.3.jpg",
+            "/images/products/catalog/hoodie_simple/STORM_STUDIO-108.6.jpg",
+          ],
+        },
+      },
+    ],
+    categories: ["store", "hoodies"],
   },
   // 👉 aqui entram os teus outros produtos exatamente como tens, só com pt/en
 ];

@@ -24,6 +24,7 @@ const Header = () => {
   const productSubLinks = [
     { name: t("tshirts"), path: "/products#tshirts" },
     { name: t("hats"), path: "/products#hats" },
+    { name: t("hoodies"), path: "/products#hoodies" },
   ];
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -169,7 +170,7 @@ const Header = () => {
               const body = encodeURIComponent("Olá STORM, ");
               window.open(
                 `mailto:geral@stormclothing.pt?subject=${subject}&body=${body}`,
-                "_self"
+                "_self",
               );
             }}
             className="hover:opacity-70 transition-opacity"
@@ -328,7 +329,7 @@ const Header = () => {
                 >
                   {link.name}
                 </Link>
-              )
+              ),
             )}
           </div>
         </nav>

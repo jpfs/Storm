@@ -11,11 +11,11 @@ const ProductsPage = () => {
   const locale = useLocale();
 
   const tshirtProducts = products.filter((p) =>
-    p.categories.includes("tshirts")
+    p.categories.includes("tshirts"),
   );
   const hatProducts = products.filter((p) => p.categories.includes("hats"));
   const hoodieProducts = products.filter((p) =>
-    p.categories.includes("hoodies")
+    p.categories.includes("hoodies"),
   );
 
   // ✅ Scroll automático para hash (#tshirts, #hats, etc.) COM OFFSET
