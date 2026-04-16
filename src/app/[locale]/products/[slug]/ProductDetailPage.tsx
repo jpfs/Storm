@@ -211,15 +211,6 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
                 </div>
               </div>
             </div>
-
-            {/* Seta Navegação (escondida no mobile) */}
-            <button
-              onClick={handleNextImage}
-              className="hidden md:flex w-8 h-28 items-center justify-center hover:scale-110 transition-transform mt-32"
-              aria-label={t("nextImage")}
-            >
-              <span className="text-3xl">›</span>
-            </button>
           </div>
 
           {/* COLUNA 3 - DESCRIÇÃO */}

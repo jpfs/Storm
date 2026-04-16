@@ -283,7 +283,7 @@ export const products: Product[] = [
         "Ombros descaídos",
       ],
     },
-    catalogImage: "/images/products/catalog/hoodie_struggle/CAPA_BEGE.jpg",
+    catalogImage: "/images/products/catalog/hoodie_struggle/STORM_STUDIO-109.OUTOFSTOCK.jpg",
     colorVariants: [
       {
         name: { en: "Bege", pt: "Beige" },
@@ -343,6 +343,51 @@ export const products: Product[] = [
     ],
     categories: ["store", "hoodies"],
   },
+    {
+    id: "7",
+    slug: "Eye_of_the_storm",
+    name: "Eye of the Storm",
+    description: {
+      en: "<strong> Casual T-shirt | 50% Cotton 50% Polyester </strong> <p> The Eye of the Storm t-shirt was created to raise funds for families affected by the 2026 storms. Featuring a unique screen-printed design, it includes references to several of the impacted locations.",
+      pt: "<strong> T-shirt Casual  | 50% Algodão 50% Poliéster </strong> <p> A t-shirt Eye of the Storm foi criada para angariar fundos para famílias afetadas pelas tempestades de 2026. Design em serigrafia, inclui referências a várias das localizações atingidas.",
+    },
+    features: {
+      en: [
+        "165 g/m²",
+        "50% Cotton 50% Polyester",
+        "Knitted",
+        "Single Jersey",
+        "Casual cut",
+        "Double seam at sleeves, neck and hem.",
+      ],
+      pt: [
+        "165 g/m²",
+        "50% Algodão 50% Poliéster",
+        "Malha",
+        "Jersey simples",
+        "Corte casual",
+        "Costura dupla nas mangas, gola e bainha.",
+      ],
+    },
+    catalogImage: "/images/products/catalog/Eye_of_the_Storm/1STORM_EYEOF-24.jpg",
+    colorVariants: [
+      {
+        name: { en: "Brown", pt: "Castanho"},
+        hex: "#4D3229",
+        images: {
+          main: "/images/products/catalog/Eye_of_the_Storm/1STORM_EYEOF-24.jpg",
+          gallery: [
+            "/images/products/catalog/Eye_of_the_Storm/1STORM_EYEOF-24.jpg",
+            "/images/products/catalog/Eye_of_the_Storm/2STORM_EYEOF-25.jpg",
+            "/images/products/catalog/Eye_of_the_Storm/3STORM_EYEOF-27.jpg",
+            "/images/products/catalog/Eye_of_the_Storm/STORM_28 FEVEREIRO-285.jpg",
+            "/images/products/catalog/Eye_of_the_Storm/STORM_28 FEVEREIRO-364.jpg",
+          ],
+        },
+      },
+    ],
+    categories: ["tshirts"],
+  }
   // 👉 aqui entram os teus outros produtos exatamente como tens, só com pt/en
 ];
 
