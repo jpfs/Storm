@@ -138,8 +138,8 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
       <div className="w-full flex justify-center px-12 sm:px-10 md:px-16 pt-4 sm:pt-0">
         <div className="relative w-full max-w-3xl h-12 pb-10 mb-8">
           <Image
-            src={`/images/products/catalog/STORM_COLLECTION_${L}.png`}
-            alt={`BRAIN STORM COLLECTION ${L}`}
+            src={product.headerImage[locale]}
+            alt={product.name}
             fill
             className="object-contain"
             priority

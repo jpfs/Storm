@@ -14,6 +14,11 @@ export interface Product {
   id: string;
   slug: string;
   name: string;
+  hasSizeGuide?: boolean;
+  headerImage: {
+    pt: string;
+    en: string;
+  };
   description: {
     pt: string;
     en: string;
@@ -26,8 +31,6 @@ export interface Product {
   colorVariants: ColorVariant[];
   categories: string[];
 
-  hasSizeGuide?: boolean;
-
 }
 
 // 🔹 Exemplo da estrutura real — copia o teu conteúdo original dentro deste formato
@@ -37,6 +40,10 @@ export const products: Product[] = [
     slug: "struggle",
     name: "STRUGGLE",
     hasSizeGuide: true,
+    headerImage: {
+      pt: "/images/products/catalog/tittle/STORM_COLLECTION_PT.png",
+      en: "/images/products/catalog/tittle/STORM_COLLECTION_EN.png"
+    },
     description: {
       en: "<strong> Oversized T-shirt | 100% Cotton </strong> <p>Crafted from premium cotton for maximum comfort. This oversized tee delivers a relaxed fit and effortless style. The ribbed crew neck adds a subtle detail, while the design on both the front and back makes it a true statement piece.",
       pt: "<strong> T-shirt Oversized | 100% Algodão </strong> <p>Confeccionada em algodão premium para máximo conforto. Esta t-shirt oversized oferece um corte descontraído e um estilo sem esforço. A gola canelada acrescenta um detalhe subtil, enquanto o design na parte frontal e traseira a transforma numa verdadeira peça de destaque.",
@@ -98,6 +105,10 @@ export const products: Product[] = [
     slug: "simple",
     name: "SIMPLE",
     hasSizeGuide: true,
+    headerImage: {
+      pt: "/images/products/catalog/tittle/STORM_COLLECTION_PT.png",
+      en: "/images/products/catalog/tittle/STORM_COLLECTION_EN.png"
+    },
     description: {
       en: "<strong> Oversized T-shirt | 100% Cotton </strong> <p> Crafted from premium cotton for maximum comfort. This oversized tee delivers a relaxed fit and effortless style. The ribbed crew neck adds a subtle detail, while the design on both the front and back makes it a true statement piece.",
       pt: "<strong> T-shirt Oversized | 100% Algodão </strong> <p> Confeccionada em algodão premium para máximo conforto. Esta t-shirt oversized oferece um corte descontraído e um estilo sem esforço. A gola canelada acrescenta um detalhe subtil, enquanto o design na parte frontal e traseira a transforma numa verdadeira peça de destaque.",
@@ -145,6 +156,10 @@ export const products: Product[] = [
     slug: "how-to",
     name: "HOW TO",
     hasSizeGuide: true,
+    headerImage: {
+      pt: "/images/products/catalog/tittle/STORM_COLLECTION_PT.png",
+      en: "/images/products/catalog/tittle/STORM_COLLECTION_EN.png"
+    },
     description: {
       en: "<strong> Oversized T-shirt | 100% Cotton </strong> <p> Crafted from premium cotton for maximum comfort. This oversized tee delivers a relaxed fit and effortless style. The ribbed crew neck adds a subtle detail, while the design on both the front and back makes it a true statement piece.",
       pt: "<strong> T-shirt Oversized | 100% Algodão </strong> <p> Confeccionada em algodão premium para máximo conforto. Esta t-shirt oversized oferece um corte descontraído e um estilo sem esforço. A gola canelada acrescenta um detalhe subtil, enquanto o design na parte frontal e traseira a transforma numa verdadeira peça de destaque.",
@@ -206,6 +221,10 @@ export const products: Product[] = [
     slug: "Storm-cap",
     name: "Storm Cap",
     hasSizeGuide: false,
+    headerImage: {
+      pt: "/images/products/catalog/tittle/STORM_COLLECTION_PT.png",
+      en: "/images/products/catalog/tittle/STORM_COLLECTION_EN.png"
+    },
     description: {
       en: "<strong> Bombazine Cap | 100% Cotton </strong> <p> A modern take on a classic, this Cap is crafted from premium bombazine corduroy for a soft, textured feel. With subtle embroidery details—an icon at the front and our logo at the back—it blends timeless style with a contemporary edge. Available in three versatile colors.",
       pt: "<strong> Boné Bombazine | 100% Algodão </strong> <p> Uma releitura moderna de um clássico, o Boné é feito em bombazine de algodão para um toque macio e textura marcante. Com bordados subtis, um ícone na frente e o nosso logo como detalhe nas costas — combina estilo atemporal com uma abordagem contemporânea. Disponível em três cores versáteis.",
@@ -271,6 +290,10 @@ export const products: Product[] = [
     slug: "Struggle-hoodie",
     name: "Struggle",
     hasSizeGuide: true,
+    headerImage: {
+      pt: "/images/products/catalog/tittle/STORM_COLLECTION_PT.png",
+      en: "/images/products/catalog/tittle/STORM_COLLECTION_EN.png"
+    },
     description: {
       en: "<strong> Oversized Hoodie | 80% Cotton </strong> <p> <strong> 20% Recycled Polyester </strong> <p>Oversized hoodie sweatshirt with a relaxed fit. Features a cross-over neckline, 2x1 ribbed cuffs and hem with elastane, and a kangaroo pocket. Designed with prints on the front and back.",
       pt: "<strong>Sweatshirt com Capuz Oversized | 80% Algodão</strong> <p> 20% Poliéster Reciclado</strong> <p>Sweatshirt com capuz oversized de corte descontraído. Possui decote cruzado, punhos e bainha canelados 2x1 com elastano e bolso canguru. Estampas na frente e nas costas.</p>",
@@ -314,6 +337,10 @@ export const products: Product[] = [
     slug: "Simple-hoodie",
     name: "Simple",
     hasSizeGuide: true,
+    headerImage: {
+      pt: "/images/products/catalog/tittle/STORM_COLLECTION_PT.png",
+      en: "/images/products/catalog/tittle/STORM_COLLECTION_EN.png"
+    },
     description: {
       en: "<strong> Oversized Hoodie | 80% Cotton </strong> <p> <strong> 20% Recycled Polyester </strong> <p>Oversized hoodie sweatshirt with a relaxed fit. Features a cross-over neckline, 2x1 ribbed cuffs and hem with elastane, and a kangaroo pocket. Designed with a simple logo embroidered on the chest and an embroidered detail on the sleeve.",
       pt: "<strong>Sweatshirt com Capuz Oversized | 80% Algodão</strong> <p> 20% Poliéster Reciclado</strong> <p>Sweatshirt hoodie oversized com corte descontraído. Apresenta decote cruzado, punhos e bainha em canelado 2x1 com elastano, e bolso canguru. Design simples com logótipo bordado no peito e detalhe de raio bordado na manga.</p>",
@@ -357,6 +384,10 @@ export const products: Product[] = [
     slug: "Eye_of_the_storm",
     name: "Eye of the Storm",
     hasSizeGuide: true,
+    headerImage: {
+      pt: "/images/products/catalog/tittle/STORM_ICON_EYE_PT.png",
+      en: "/images/products/catalog/tittle/STORM_ICON_EYE_EN.png"
+    },
     description: {
       en: "<strong> Casual T-shirt | 50% Cotton 50% Polyester </strong> <p> The Eye of the Storm t-shirt was created to raise funds for families affected by the 2026 storms. Featuring a unique screen-printed design, it includes references to several of the impacted locations.",
       pt: "<strong> T-shirt Casual  | 50% Algodão 50% Poliéster </strong> <p> A t-shirt Eye of the Storm foi criada para angariar fundos para famílias afetadas pelas tempestades de 2026. Design em serigrafia, inclui referências a várias das localizações atingidas.",
