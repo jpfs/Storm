@@ -262,17 +262,22 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
             </div>
 
             {/* Guia de Tamanhos */}
-            <div className="pt-0" ref={sizeGuideRef}>
-              <button onClick={handleSizeClick} className="w-[250px]">
-                <Image
-                  src="/icons/products/sizes.png"
-                  alt={t("sizeGuide")}
-                  width={300}
-                  height={150}
-                  className="w-full h-auto hover:opacity-80 transition-opacity"
-                />
-              </button>
-            </div>
+            {product.hasSizeGuide && (
+              <div className="pt-0" ref={sizeGuideRef}>
+                <button
+                  onClick={handleSizeClick}
+                  className="w-[250px]"
+                >
+                  <Image
+                    src="/icons/products/sizes.png"
+                    alt={t("sizeGuide")}
+                    width={300}
+                    height={150}
+                    className="w-full h-auto hover:opacity-80 transition-opacity"
+                  />
+                </button>
+              </div>
+            )}
 
             {/* Seleção de Cor */}
             <div className="space-y-2" ref={colorSectionRef}>
@@ -301,9 +306,9 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
             </div>
 
             {/* Ícones animados */}
-            {showSizeImages && (
+            {product.hasSizeGuide && showSizeImages && (
               <>
-                {/* Ícone NO → fixo acima do Guia de Tamanhos */}
+                {/* Ícone NO */}
                 {sizeGuideRef.current && (
                   <div
                     className="absolute animate-[slideInBounceRight_0.6s_ease-out] pointer-events-none"
@@ -323,7 +328,7 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
                   </div>
                 )}
 
-                {/* Ícone YESS → fixo abaixo e à esquerda da Seleção de Cor */}
+                {/* Ícone YES */}
                 {colorSectionRef.current && (
                   <div
                     className="absolute animate-[slideInBounceLeft_0.6s_ease-out_0.2s_backwards] pointer-events-none"
@@ -334,7 +339,7 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
                   >
                     <Image
                       src={`/icons/products/STORM_ICON_YESS_${L}.png`}
-                      alt="Color Section YESS"
+                      alt="Color Section YES"
                       width={200}
                       height={200}
                       className="object-contain"
