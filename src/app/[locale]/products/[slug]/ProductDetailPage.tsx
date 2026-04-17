@@ -362,8 +362,23 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
               </>
             )}
 
+            {/* Preço */}
+            <div className="mt-2 mb-2 flex items-center gap-2">
+              <span className="text-2xl font-semibold">
+                {product.price}
+              </span>
+
+              <Image
+                src="/images/products/catalog/STORM_ICON_PREÇO_PRANCHAS.png"
+                alt="Currency"
+                width={18}
+                height={18}
+                className="object-contain"
+              />
+            </div>
+
             {/* Botão Instagram */}
-            <div className="pt-10">
+            <div className="pt-0">
               <a
                 href="https://www.instagram.com/_storm_pt/"
                 target="_blank"

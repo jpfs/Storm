@@ -33,6 +33,7 @@ export interface Product {
   };
   catalogImage: string;
   colorVariants: ColorVariant[];
+  price: string;
   categories: string[];
 
 }
@@ -110,6 +111,7 @@ export const products: Product[] = [
         }
       },
     ],
+    price: "30",
     categories: ["tshirts"],
   },
   {
