@@ -8,6 +8,10 @@ export interface ColorVariant {
     main: string;
     gallery: string[];
   };
+  note?: {
+    pt: string;
+    en: string;
+  };
 }
 
 export interface Product {
@@ -82,6 +86,10 @@ export const products: Product[] = [
             "/images/products/catalog/struggle/white/BACK_STRUGGLE_WHITE2.jpg",
           ],
         },
+        note: {
+          pt: "*O <strong>modelo</strong> na foto está a usar o <strong>tamanho M</strong>.",
+          en: "*The <strong>model</strong> in the photo is wearing a <strong>size M</strong>."
+        }
       },
       {
         name: { en: "Beige", pt: "Bege" },
@@ -96,6 +104,10 @@ export const products: Product[] = [
             "/images/products/catalog/struggle/bege/STORM_STUDIO-98.jpg",
           ],
         },
+        note: {
+          pt: "*O <strong>modelo</strong> na foto está a usar o <strong>tamanho M</strong>.",
+          en: "*The <strong>male model</strong> is wearing a <strong>size S</strong>. The <strong>female model</strong> is wearing a <strong>size XS</strong>."
+        }
       },
     ],
     categories: ["tshirts"],

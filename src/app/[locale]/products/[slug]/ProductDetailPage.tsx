@@ -22,6 +22,7 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [isFeaturesOpen, setIsFeaturesOpen] = useState(false);
   const [showSizeImages, setShowSizeImages] = useState(false);
+  const selectedVariant = selectedColor;
 
   // 🔧 Refs para posicionar os ícones
   const sizeGuideRef = useRef<HTMLDivElement>(null);
@@ -132,7 +133,7 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
   return (
     <div className="min-h-screen bg-white relative">
       {/* Spacer para o Header */}
-      <div className="h-32 md:h-44" />
+      <div className="h-32 md:h-30" />
 
       {/* Header Section */}
       <div className="w-full flex justify-center px-12 sm:px-10 md:px-16 pt-4 sm:pt-0">
@@ -225,7 +226,7 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
             />
 
             {/* Features */}
-            <div className="pt-0 mb-8">
+            <div className="pt-0">
               <button
                 onClick={() => setIsFeaturesOpen(!isFeaturesOpen)}
                 className="flex items-center gap-1 text-[1.2rem] hover:text-storm-red transition-colors storm-body"
@@ -276,6 +277,18 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
                     className="w-full h-auto hover:opacity-80 transition-opacity"
                   />
                 </button>
+              </div>
+            )}
+
+            {/* Nota da Cor */}
+            {selectedVariant?.note?.[locale] && (
+              <div className="mb-4 px-1">
+                <p
+                  className="text-sm text-gray-700 leading-relaxed"
+                  dangerouslySetInnerHTML={{
+                    __html: selectedVariant.note[locale]
+                  }}
+                />
               </div>
             )}
 
