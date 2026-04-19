@@ -362,9 +362,11 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
               </>
             )}
 
+
+          <div className="mt-8 mb-6 flex items-center">    
             {/* Preço */}
-            <div className="mt-2 mb-2 flex items-center gap-2">
-              <span className="text-2xl font-semibold">
+            <div className="mt-2 mb-2 mr-4 flex items-center gap-2">
+              <span className="text-2xl storm-title">
                 {product.price}
               </span>
 
@@ -377,22 +379,23 @@ const ProductDetailPage = ({ product }: ProductDetailPageProps) => {
               />
             </div>
 
-            {/* Botão Instagram */}
-            <div className="pt-0">
-              <a
-                href="https://www.instagram.com/_storm_pt/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:scale-110 transition-transform inline-block"
-              >
-                <Image
-                  src={`/icons/products/STORM_ICON_BUY_${L}.png`}
-                  alt={t("buyOnInsta")}
-                  width={200}
-                  height={200}
-                  className="object-contain"
-                />
-              </a>
+              {/* Botão Instagram */}
+              <div className="pt-0">
+                <a
+                  href="https://www.instagram.com/_storm_pt/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:scale-110 transition-transform inline-block"
+                >
+                  <Image
+                    src={`/icons/products/STORM_ICON_BUY_${L}.png`}
+                    alt={t("buyOnInsta")}
+                    width={200}
+                    height={200}
+                    className="object-contain"
+                  />
+                </a>
+              </div>
             </div>
           </div>
         </div>

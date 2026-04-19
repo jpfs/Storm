@@ -106,7 +106,7 @@ export const products: Product[] = [
           ],
         },
         note: {
-          pt: "*O <strong>modelo</strong> na foto está a usar o <strong>tamanho M</strong>.",
+          pt: "*O <strong>modelo masculino</strong> está a usar o <strong>tamanho S</strong>. A <strong>modelo feminina</strong> está a usar o <strong>tamanho XS</strong>.",
           en: "*The <strong>male model</strong> is wearing a <strong>size S</strong>. The <strong>female model</strong> is wearing a <strong>size XS</strong>."
         }
       },
@@ -161,8 +161,13 @@ export const products: Product[] = [
             "/images/products/catalog/simple/STORM_STUDIO-36.jpg",
           ],
         },
+        note: {
+          pt: "*O <strong>modelo</strong> na foto está a usar o <strong>tamanho M</strong>.",
+          en: "*The <strong>model</strong> in the photo is wearing a <strong>size M</strong>."
+        }
       },
     ],
+    price: "30",
     categories: ["store", "tshirts"],
   },
   {
@@ -213,6 +218,10 @@ export const products: Product[] = [
             "/images/products/catalog/how to/black/STORM_STUDIO-222.jpg",
           ],
         },
+        note: {
+          pt: "*O <strong>modelo</strong> na foto está a usar o <strong>tamanho M</strong>.",
+          en: "*The <strong>model</strong> in the photo is wearing a <strong>size M</strong>."
+        }
       },
       {
         name: { en: "White", pt: "Branco" },
@@ -226,8 +235,13 @@ export const products: Product[] = [
             "/images/products/catalog/how to/white/STORM_STUDIO-119.jpg",
           ],
         },
+        note: {
+          pt: "*O <strong>modelo</strong> na foto está a usar o <strong>tamanho M</strong>.",
+          en: "*The <strong>model</strong> in the photo is wearing a <strong>size M</strong>."
+        }
       },
     ],
+    price: "30",
     categories: ["tshirts"],
   },
   {
@@ -273,6 +287,10 @@ export const products: Product[] = [
             "/images/products/catalog/storm_hat/STORM_CAPS-16.jpg",
           ],
         },
+        note: {
+          pt: "*O <strong>Cap</strong> é <strong>tamanho único </strong>.",
+          en: "*The <strong>cap</strong> is <strong>universal size</strong>."
+        }
       },
       {
         name: { en: "Green", pt: "Verde" },
@@ -284,6 +302,10 @@ export const products: Product[] = [
             "/images/products/catalog/storm_hat/STORM_CAPS-22.jpg",
           ],
         },
+        note: {
+          pt: "*O <strong>Cap</strong> é <strong>tamanho único </strong>.",
+          en: "*The <strong>cap</strong> is <strong>universal size</strong>."
+        }
       },
       {
         name: { en: "Black", pt: "Preto" },
@@ -295,8 +317,13 @@ export const products: Product[] = [
             "/images/products/catalog/storm_hat/STORM_CAPS-31.jpg",
           ],
         },
+        note: {
+          pt: "*O <strong>Cap</strong> é <strong>tamanho único </strong>.",
+          en: "*The <strong>cap</strong> is <strong>universal size</strong>."
+        }
       },
     ],
+    price: "20",
     categories: ["hats"],
   },
   {
@@ -342,8 +369,13 @@ export const products: Product[] = [
             "/images/products/catalog/hoodie_struggle/STORM_STUDIO-109.5.jpg",
           ],
         },
+        note: {
+          pt: "*O <strong>modelo</strong> na foto está a usar o <strong>tamanho M</strong>.",
+          en: "*The <strong>model</strong> in the photo is wearing a <strong>size M</strong>."
+        }
       },
     ],
+    price: "40",
     categories: ["store", "hoodies"],
   },
   {
@@ -389,8 +421,13 @@ export const products: Product[] = [
             "/images/products/catalog/hoodie_simple/STORM_STUDIO-108.6.jpg",
           ],
         },
+        note: {
+          pt: "*O <strong>modelo</strong> na foto está a usar o <strong>tamanho M</strong>.A <strong>modelo</strong> está a usar o <strong>tamanho S</strong>.",
+          en: "*The <strong>male model</strong> in the photo is wearing a <strong>size M</strong>. The <strong>female model</strong> is wearing a <strong>size S</strong>."
+        }
       },
     ],
+    price: "45",
     categories: ["store", "hoodies"],
   },
     {
@@ -435,12 +472,16 @@ export const products: Product[] = [
             "/images/products/catalog/Eye_of_the_Storm/1STORM_EYEOF-24.jpg",
             "/images/products/catalog/Eye_of_the_Storm/2STORM_EYEOF-25.jpg",
             "/images/products/catalog/Eye_of_the_Storm/3STORM_EYEOF-27.jpg",
-            "/images/products/catalog/Eye_of_the_Storm/STORM_28 FEVEREIRO-285.jpg",
             "/images/products/catalog/Eye_of_the_Storm/STORM_28 FEVEREIRO-364.jpg",
           ],
         },
+        note: {
+          pt: "*Os <strong>modelos</strong> estão a usar o <strong>tamanho L</strong>, na última foto ele está a usar o <strong>tamanho M</strong>.",
+          en: "*The <strong>models</strong> are wearing a <strong>size L</strong>, on the last photo he is wearing a <strong>size M</strong>."
+        }
       },
     ],
+    price: "30",
     categories: ["tshirts"],
   }
   // 👉 aqui entram os teus outros produtos exatamente como tens, só com pt/en
