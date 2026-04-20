@@ -481,7 +481,7 @@ export const products: Product[] = [
         }
       },
     ],
-    price: "30",
+    price: "20",
     categories: ["tshirts"],
   }
   // 👉 aqui entram os teus outros produtos exatamente como tens, só com pt/en
