@@ -35,8 +35,8 @@ const ProductsPage = () => {
   // ✅ imagem de cabeçalho dinâmica conforme idioma
   const collectionImage =
     locale === "en"
-      ? "/images/products/catalog/STORM_COLLECTION_EN.png"
-      : "/images/products/catalog/STORM_COLLECTION_PT.png";
+      ? "/images/products/catalog/tittle/STORM_COLLECTION_EN.png"
+      : "/images/products/catalog/tittle/STORM_COLLECTION_PT.png";
 
   // ✅ Componente auxiliar para renderizar secções
   const ProductSection = ({

@@ -467,12 +467,12 @@ export const products: Product[] = [
         name: { en: "Brown", pt: "Castanho"},
         hex: "#4D3229",
         images: {
-          main: "/images/products/catalog/Eye_of_the_Storm/1STORM_EYEOF-24.jpg",
+          main: "/images/products/catalog/Eye_of_the_storm/1STORM_EYEOF-24.jpg",
           gallery: [
-            "/images/products/catalog/Eye_of_the_Storm/1STORM_EYEOF-24.jpg",
-            "/images/products/catalog/Eye_of_the_Storm/2STORM_EYEOF-25.jpg",
-            "/images/products/catalog/Eye_of_the_Storm/3STORM_EYEOF-27.jpg",
-            "/images/products/catalog/Eye_of_the_Storm/STORM_28 FEVEREIRO-364.jpg",
+            "/images/products/catalog/Eye_of_the_storm/1STORM_EYEOF-24.jpg",
+            "/images/products/catalog/Eye_of_the_storm/2STORM_EYEOF-25.jpg",
+            "/images/products/catalog/Eye_of_the_storm/3STORM_EYEOF-27.jpg",
+            "/images/products/catalog/Eye_of_the_storm/STORM_28 FEVEREIRO-364.jpg",
           ],
         },
         note: {
