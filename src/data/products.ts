@@ -461,7 +461,7 @@ export const products: Product[] = [
         "Costura dupla nas mangas, gola e bainha.",
       ],
     },
-    catalogImage: "/images/products/catalog/Eye_of_the_Storm/1STORM_EYEOF-24.jpg",
+    catalogImage: "/images/products/catalog/Eye_of_the_storm/1STORM_EYEOF-24.jpg",
     colorVariants: [
       {
         name: { en: "Brown", pt: "Castanho"},
